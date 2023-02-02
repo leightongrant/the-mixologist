@@ -1,4 +1,6 @@
+import { getAllCocktails } from "./modules/carousel.js";
 import { getCocktail, getCocktailDescription, getNavigatorLocation } from "./modules/logic.js";
+
 
 $(function () {
     // Main function 
@@ -28,40 +30,6 @@ $(function () {
     //     getNavigatorLocation();
     // }
 
-
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+getAllCocktails();
