@@ -1,4 +1,4 @@
-import { appid1, appid2 } from "./apikeys.js";
+//import { appid1, appid2 } from "./apikeys.js";
 
 
 // This function should query the cocktaiĺ data base and create an object with
