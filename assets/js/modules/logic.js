@@ -36,7 +36,6 @@ const getCocktail = (search) => {
                 if (responseData[`strIngredient${i}`] === null) {
                     continue;
                 } else {
-                    console.log(responseData[`strIngredient${i}`]);
                     cocktailData.ingredients.push(responseData[`strIngredient${i}`]);
                 }
             }

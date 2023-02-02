@@ -1,62 +1,67 @@
 import { getCocktail, getCocktailDescription, getNavigatorLocation } from "./modules/logic.js";
 
 $(function () {
-
-    // if (navigator.geolocation) {
-    //     getNavigatorLocation();
-    // }
+    // Main function 
     const main = (search) => {
         getCocktail(search);
         getCocktailDescription(search);
 
     };
 
-
-    main('bloody mary');
-
-
+    let randomCocktail = 'bloody mary';
+    main(randomCocktail);
 
 
+    // Event handler to get data from search and call main
+    $('.cocktail-search-btn').on('click', () => {
+        let userSearch = $('.cocktail-search-frm').val();
 
-
-
-
-
-
+        main(userSearch);
+    });
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // if (navigator.geolocation) {
+    //     getNavigatorLocation();
+    // }
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
