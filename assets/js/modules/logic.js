@@ -30,7 +30,12 @@ const getCocktailDescription = (search) => {
                 throw Error(response.statusText);
             }
         })
-        .then(data => console.log(data))
+        .then(data => {
+            $('.cocktail-description').text(data.query.search[0].title);
+            $('.cocktail-description').html(data.query.search[0].snippet);
+            //console.log(data.query.search[0].title);
+            //console.log(data.query.search[0].snippet);
+        })
         .catch(err => console.log(err));
 
 };
@@ -90,4 +95,4 @@ const getLocalBars = (search) => {
 
 
 
-export { getNavigatorLocation };
+export { getNavigatorLocation, getCocktailDescription };
