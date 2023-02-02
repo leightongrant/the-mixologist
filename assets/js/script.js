@@ -1,13 +1,21 @@
-import { getCocktailDescription, getNavigatorLocation } from "./modules/logic.js";
+import { getCocktail, getCocktailDescription, getNavigatorLocation } from "./modules/logic.js";
 
 $(function () {
 
-    if (navigator.geolocation) {
-        getNavigatorLocation();
-    }
+    // if (navigator.geolocation) {
+    //     getNavigatorLocation();
+    // }
+    const main = (search) => {
+        getCocktail(search);
+        getCocktailDescription(search);
+
+    };
 
 
-    getCocktailDescription('margarita');
+    main('bloody mary');
+
+
+
 
 
 
