@@ -1,4 +1,5 @@
 import { getCocktail, getCocktailDescription, getNavigatorLocation } from "./modules/logic.js";
+import { getLocation } from "./modules/googlemaps.js";
 
 $(function () {
     // Main function 

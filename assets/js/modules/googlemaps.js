@@ -94,7 +94,8 @@ function getLocation() {
       }
     }
 
-    $('#myMapModal').on('show.bs.modal', function() {
+    $('#myModal').on('show.bs.modal', function() {
+        $("#modal-title").text("Find Where To Get A Cocktail")
         getLocation();
         google.maps.event.trigger(map, 'resize');
      })
