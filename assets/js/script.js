@@ -1,5 +1,4 @@
 import { getCocktail, getCocktailDescription, getNavigatorLocation } from "./modules/logic.js";
-import { getLocation } from "./modules/googlemaps.js";
 
 $(function () {
     // Main function 
@@ -33,11 +32,6 @@ $(function () {
 });
 
 
-// $('#myMapModal').on('show.bs.modal', function() {
-//     console.log("in function")
-//     getLocation();
-//     //google.maps.event.trigger(map, 'resize');
-//  })
 
 
 
