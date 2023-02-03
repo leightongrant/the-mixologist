@@ -33,135 +33,179 @@
             </ul>
         </nav>
     </header>
+
     <main>
-        <section id="search">
-            <div class="container my-5">
-                <div class="row">
-                    <div class="col">
+        <div class="container">
+            <div class="row">
 
-                        <div class="search">
-                            <i class="fa fa-search"></i>
-                            <input type="text" class="form-control cocktail-search-frm"
-                                placeholder="Search for a cocktail">
-                            <button class="btn btn-primary cocktail-search-btn">Search</button>
+                <div class="main col-md-8 py-5">
+
+                    <section id="search">
+                        <div class="container my-5">
+                            <div class="row">
+                                <div class="col">
+
+                                    <div class="search">
+                                        <i class="fa fa-search"></i>
+                                        <input type="text" class="form-control cocktail-search-frm"
+                                            placeholder="Search for a cocktail">
+                                        <button class="btn btn-primary cocktail-search-btn">Search</button>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
+                    </section>
+                    <section id="description" class="my-5">
+                        <div class="container">
+                            <div class="">
+                                <div class="row g-0">
 
-                    </div>
+                                    <div class="col">
+                                        <h2 class="section-title cocktail-title">
+                                            <!-- Margarita -->
+                                        </h2>
+                                        <hr class="hr hr-blurry mb-3" />
+
+                                        <img src="" loading="lazy" class="w-100 img-fluid rounded cocktail-image"
+                                            alt="...">
+                                        <h5 class="item-title description mt-5 my-3">Description</h5>
+                                        <p class="item-text cocktail-description">
+                                        </p>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="recipe">
+
+                        <div class="container my-3">
+                            <div class="row g-0">
+
+                                <div class="col">
+
+                                    <h2 class="section-title my-3">Recipe</h2>
+                                    <hr class="hr hr-blurry" />
+                                    <h5 class="item-title mb-3">Ingredients</h5>
+                                    
+                                    <ol class="ingredients">
+                                        <!-- ingredients -->
+                                    </ol>
+
+                                    <h5 class="item-title mb-3">Instructions</h5>
+                                    <p class="item-text instructions">
+                                        <!-- Instructions -->
+                                    </p>
+
+                                    <p class="item-text">Date Modified: <small class="text-muted">2015-08-18
+                                            14:42:59</small></p>
+
+                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                 </div>
-            </div>
-            </div>
-        </section>
-        <section id="description">
-            <div class="container my-5">
-                <div class="card">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="" loading="lazy" class="img-fluid rounded-start cocktail-image" alt="...">
+                <aside class="aside col-md-4 py-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h2 class="aside-title">Popular Cocktails</h2>
+                                <div class="my-5">
+                                    <h5>Bloody Mary</h5>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Di_mare_%28Bloody_Mary%29.jpg/640px-Di_mare_%28Bloody_Mary%29.jpg"
+                                        alt="" srcset="" class="w-100 img-fluid rounded" loading="lazy">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                    <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
+                                </div>
+                                <div class="my-5">
+                                    <h5>Margarita</h5>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Maya_-_2021-06-26_-_Sarah_Stierch.jpg/640px-Maya_-_2021-06-26_-_Sarah_Stierch.jpg"
+                                        alt="" srcset="" class="w-100 img-fluid rounded" loading="lazy">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                    <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
+                                </div>
+                                <div class="my-5">
+                                    <h5>Mocktail</h5>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Pink_Berry_Frozen_Smoothie_Wth_Orange_Slice_%282795942099%29.jpg/640px-Pink_Berry_Frozen_Smoothie_Wth_Orange_Slice_%282795942099%29.jpg"
+                                        alt="" srcset="" class="w-100 img-fluid rounded" loading="lazy">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                    <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
+                                </div>
+                                <div class="my-5">
+                                    <h5>Mojito</h5>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mojito_3.jpg/640px-Mojito_3.jpg"
+                                        alt="" srcset="" class="w-100 img-fluid rounded" loading="lazy">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                    <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h2 class="card-title cocktail-title">
-                                    <!-- Margarita -->
-                                </h2>
-                                <p class="card-text cocktail-description">
-                                    <!-- This is a wider card with supporting text
-                                    below as a natural
-                                    lead-in to
-                                    additional content. This content is a little bit longer. -->
-                                </p>
+                    </div>
+                </aside>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="recipe">
-            <div class="container my-5">
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <h2 class="card-header">Recipe</h2>
-                            <div class="card-body">
-                                <h5 class="card-title">Ingredients</h5>
-                                <ol class="ingredients">
-                                    <!-- <li>Tequila</li>
-                                    <li>Triple sec</li>
-                                    <li>Lime juice</li>
-                                    <li>Salt</li> -->
-
-                                </ol>
-                                <h5 class="card-title">Instructions</h5>
-                                <p class="card-text instructions">
-                                    <!-- Rub the rim of the glass with the lime slice to make the salt stick to it. Take care
-                                    to moisten only the outer rim and sprinkle the salt on it. The salt should present
-                                    to the lips of the imbiber and never mix into the cocktail. Shake the other
-                                    ingredients with ice, then carefully pour into the glass. -->
-                                </p>
-                                <p class="card-text">Date Modified: <small class="text-muted">2015-08-18
-                                        14:42:59</small></p>
-
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="local-bars">
-            <div class="container my-5">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="./assets/images/placeholders/bar1-img.jpg" loading="lazy" class="card-img-top"
-                                alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Cocktail Bar One</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to
-                                    additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Last updated 3 mins ago</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="./assets/images/placeholders/bar-img.jpg" loading="lazy" class="card-img-top"
-                                alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Cocktail Bar Two</h5>
-                                <p class="card-text">This card has supporting text below as a natural lead-in to
-                                    additional
-                                    content.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Last updated 3 mins ago</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="./assets/images/placeholders/bar3-img.jpg" loading="lazy" class="card-img-top"
-                                alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Cocktail Bar Three</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to
-                                    additional content. This card has even longer content than the first to show that
-                                    equal
-                                    height action.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Last updated 3 mins ago</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </div> <!--main row-->
+        </div>
     </main>
+    <section id="local-bars" class="py-5">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="./assets/images/placeholders/bar1-img.jpg" loading="lazy" class="card-img-top"
+                            alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Cocktail Bar One</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a
+                                natural
+                                lead-in to
+                                additional content. This content is a little bit longer.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="./assets/images/placeholders/bar-img.jpg" loading="lazy" class="card-img-top"
+                            alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Cocktail Bar Two</h5>
+                            <p class="card-text">This card has supporting text below as a natural lead-in to
+                                additional
+                                content.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="./assets/images/placeholders/bar3-img.jpg" loading="lazy" class="card-img-top"
+                            alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Cocktail Bar Three</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a
+                                natural
+                                lead-in to
+                                additional content. This card has even longer content than the first to show
+                                that
+                                equal
+                                height action.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer class="bg bg-dark">
         <div class="text-light d-flex justify-content-center">
             © 2023, The Mixologist

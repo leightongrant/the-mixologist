@@ -2,9 +2,13 @@
 
 /* Search */
 body {
-    background-color: #eee;
+    /* background-color: #eee; */
     font-family: "Poppins", sans-serif;
     font-weight: 300;
+}
+
+#local-bars{
+    background-color: #eee;
 }
 
 .height {
