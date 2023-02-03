@@ -1,6 +1,10 @@
 import { getCocktail, getCocktailDescription, getNavigatorLocation } from "./modules/logic.js";
+<<<<<<< HEAD
 import { showModal } from "./modules/modal.js";
 
+=======
+import { getLocation } from "./modules/googlemaps.js";
+>>>>>>> Jason-Google-maps
 
 $(function () {
     // Main function 
@@ -32,7 +36,6 @@ $(function () {
 
 
 });
-
 
 
 
