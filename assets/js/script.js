@@ -1,5 +1,6 @@
 import { getAllCocktails } from "./modules/carousel.js";
 import { getCocktail, getCocktailDescription, getNavigatorLocation } from "./modules/logic.js";
+import { showModal } from "./modules/modal.js";
 
 
 $(function () {

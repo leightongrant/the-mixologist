@@ -117,7 +117,7 @@
                                 <p class="card-text">Date Modified: <small class="text-muted">2015-08-18
                                         14:42:59</small></p>
 
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a href="#myModal" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
                     </div>
@@ -183,6 +183,31 @@
             © 2023, The Mixologist
         </div>
     </footer>
+
+        <!-- Modal form -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                            <h4 class="modal-title w-100"  id="modal-title"></h4>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">x</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div id="map-canvas"></div> 
+                                    <div id="modal-content"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End modal -->
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">

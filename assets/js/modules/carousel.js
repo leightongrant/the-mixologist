@@ -1,6 +1,5 @@
 
 
-
 function getAllCocktails(){
 
     $.ajax({
@@ -9,7 +8,6 @@ function getAllCocktails(){
   
         success: function(result) {
             console.log(result);
-
             getSevenRandomDrinks(result)
             advanceSlide();
         },
