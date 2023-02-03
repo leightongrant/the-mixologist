@@ -7,6 +7,10 @@ body {
     font-weight: 300;
 }
 
+#local-bars{
+    background-color: #eee;
+}
+
 .height {
     height: 100vh;
 }

@@ -37,7 +37,8 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="main col-md-9">
+
+                <div class="main col-md-8 py-5">
 
                     <section id="search">
                         <div class="container my-5">
@@ -55,8 +56,8 @@
                             </div>
                         </div>
                     </section>
-                    <section id="description">
-                        <div class="container my-5">
+                    <section id="description" class="my-5">
+                        <div class="container">
                             <div class="">
                                 <div class="row g-0">
 
@@ -64,10 +65,11 @@
                                         <h2 class="section-title cocktail-title">
                                             <!-- Margarita -->
                                         </h2>
+                                        <hr class="hr hr-blurry mb-3" />
 
-                                        <img src="" loading="lazy" class="img-fluid rounded-start cocktail-image"
+                                        <img src="" loading="lazy" class="w-100 img-fluid rounded cocktail-image"
                                             alt="...">
-                                        <h5 class="item-title description">Description</h5>
+                                        <h5 class="item-title description mt-5 my-3">Description</h5>
                                         <p class="item-text cocktail-description">
                                         </p>
 
@@ -79,18 +81,20 @@
                     </section>
                     <section id="recipe">
 
-                        <div class="container my-5">
+                        <div class="container my-3">
                             <div class="row g-0">
 
                                 <div class="col">
 
-                                    <h2 class="section-title">Recipe</h2>
-                                    <h5 class="item-title">Ingredients</h5>
+                                    <h2 class="section-title my-3">Recipe</h2>
+                                    <hr class="hr hr-blurry" />
+                                    <h5 class="item-title mb-3">Ingredients</h5>
+                                    
                                     <ol class="ingredients">
                                         <!-- ingredients -->
                                     </ol>
 
-                                    <h5 class="item-title">Instructions</h5>
+                                    <h5 class="item-title mb-3">Instructions</h5>
                                     <p class="item-text instructions">
                                         <!-- Instructions -->
                                     </p>
@@ -105,32 +109,36 @@
                     </section>
 
                 </div>
-                <aside class="aside col-md-3">
+                <aside class="aside col-md-4 py-5">
                     <div class="container">
                         <div class="row">
                             <div class="col">
                                 <h2 class="aside-title">Popular Cocktails</h2>
-                                <div>
+                                <div class="my-5">
                                     <h5>Bloody Mary</h5>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Di_mare_%28Bloody_Mary%29.jpg/640px-Di_mare_%28Bloody_Mary%29.jpg" alt="" srcset="">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Di_mare_%28Bloody_Mary%29.jpg/640px-Di_mare_%28Bloody_Mary%29.jpg"
+                                        alt="" srcset="" class="w-100 img-fluid rounded" loading="lazy">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                                     <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
                                 </div>
-                                <div>
+                                <div class="my-5">
                                     <h5>Margarita</h5>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Maya_-_2021-06-26_-_Sarah_Stierch.jpg/640px-Maya_-_2021-06-26_-_Sarah_Stierch.jpg" alt="" srcset="">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Maya_-_2021-06-26_-_Sarah_Stierch.jpg/640px-Maya_-_2021-06-26_-_Sarah_Stierch.jpg"
+                                        alt="" srcset="" class="w-100 img-fluid rounded" loading="lazy">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                                     <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
                                 </div>
-                                <div>
+                                <div class="my-5">
                                     <h5>Mocktail</h5>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Pink_Berry_Frozen_Smoothie_Wth_Orange_Slice_%282795942099%29.jpg/640px-Pink_Berry_Frozen_Smoothie_Wth_Orange_Slice_%282795942099%29.jpg" alt="" srcset="">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Pink_Berry_Frozen_Smoothie_Wth_Orange_Slice_%282795942099%29.jpg/640px-Pink_Berry_Frozen_Smoothie_Wth_Orange_Slice_%282795942099%29.jpg"
+                                        alt="" srcset="" class="w-100 img-fluid rounded" loading="lazy">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                                     <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
                                 </div>
-                                <div>
+                                <div class="my-5">
                                     <h5>Mojito</h5>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mojito_3.jpg/640px-Mojito_3.jpg" alt="" srcset="">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mojito_3.jpg/640px-Mojito_3.jpg"
+                                        alt="" srcset="" class="w-100 img-fluid rounded" loading="lazy">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                                     <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
                                 </div>
@@ -138,11 +146,12 @@
                         </div>
                     </div>
                 </aside>
-            </div>
+
+            </div> <!--main row-->
         </div>
     </main>
-    <section id="local-bars">
-        <div class="container my-5">
+    <section id="local-bars" class="py-5">
+        <div class="container">
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                     <div class="card h-100">
