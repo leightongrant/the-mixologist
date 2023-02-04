@@ -24,8 +24,9 @@ let service;
 let infowindow;
 
 function initMap () {
-    const myLocation = new google.maps.LatLng(52.9259504, -0.6583851);
-    //const pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+    let lat = 51.5128357;
+    let lon = -0.1352709;
+    const myLocation = new google.maps.LatLng(lat, lon);
 
     infowindow = new google.maps.InfoWindow();
     map = new google.maps.Map(document.getElementById("map"), {
