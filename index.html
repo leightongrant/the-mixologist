@@ -89,7 +89,7 @@
                                     <h2 class="section-title my-3">Recipe</h2>
                                     <hr class="hr hr-blurry" />
                                     <h5 class="item-title mb-3">Ingredients</h5>
-                                    
+
                                     <ol class="ingredients">
                                         <!-- ingredients -->
                                     </ol>
@@ -151,57 +151,74 @@
         </div>
     </main>
     <section id="local-bars" class="py-5">
+        <h2 class="section-title text-center mb-5">Top Rated Bars</h2>
+
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row row-cols-sm-2 row-cols-md-4 g-3 g-md-3 p-2" id="data-cards">
+
                 <div class="col">
-                    <div class="card h-100">
-                        <img src="./assets/images/placeholders/bar1-img.jpg" loading="lazy" class="card-img-top"
-                            alt="...">
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Cocktail Bar One</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a
-                                natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+                            <span class="card-icon">icon</span>
+                            <h5 class="card-title">Bar Name</h5>
+                            <p class="card-text"><i class="fa-solid fa-location-dot"></i></p>
+                            <p class="card-text"><i class="fa-solid fa-star"></i></p>
                         </div>
                     </div>
                 </div>
+
                 <div class="col">
-                    <div class="card h-100">
-                        <img src="./assets/images/placeholders/bar-img.jpg" loading="lazy" class="card-img-top"
-                            alt="...">
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Cocktail Bar Two</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to
-                                additional
-                                content.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+                            <span class="card-icon">icon</span>
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"><i class="fa-solid fa-location-dot"></i></p>
+                            <p class="card-text"><i class="fa-solid fa-star"></i></p>
                         </div>
                     </div>
                 </div>
+
                 <div class="col">
-                    <div class="card h-100">
-                        <img src="./assets/images/placeholders/bar3-img.jpg" loading="lazy" class="card-img-top"
-                            alt="...">
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Cocktail Bar Three</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a
-                                natural
-                                lead-in to
-                                additional content. This card has even longer content than the first to show
-                                that
-                                equal
-                                height action.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+                            <span class="card-icon">icon</span>
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"><i class="fa-solid fa-location-dot"></i></p>
+                            <p class="card-text"><i class="fa-solid fa-star"></i></p>
                         </div>
                     </div>
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <span class="card-icon">icon</span>
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"><i class="fa-solid fa-location-dot"></i></p>
+                            <p class="card-text"><i class="fa-solid fa-star"></i></p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </section>
+    <section id="google-map">
+        <div class="">
+            <div class="row">
+                <div class="col">
+
+                    <div class="map" id="map" style="height: 400px;">
+                        <p>Google Maps</p>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -211,6 +228,8 @@
             © 2023, The Mixologist
         </div>
     </footer>
+
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
@@ -229,6 +248,15 @@
 
     <!-- Main script -->
     <script src="./assets/js/script.js" type="module"></script>
+    <script src="./assets/js/maps.js"></script>
+
+    <!-- Google Maps -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places&callback=initMap&v=weekly"
+        defer></script>
+
+
 
 </body>
 
