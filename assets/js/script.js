@@ -28,6 +28,11 @@ $(function () {
     //     getNavigatorLocation();
     // }
 
+    //window.initMap = initMap;
+
+
+
+
 
 });
 
