@@ -1,4 +1,5 @@
-import { getCocktail, getCocktailDescription, getNavigatorLocation } from "./modules/logic.js";
+import { getCocktail, getCocktailDescription, getNavigatorLocation, getRandomCocktails } from "./modules/logic.js";
+
 
 $(function () {
     // Main function 
@@ -29,6 +30,8 @@ $(function () {
     // }
 
     //window.initMap = initMap;
+
+    getRandomCocktails();
 
 
 

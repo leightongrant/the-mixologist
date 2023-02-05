@@ -1,5 +1,5 @@
-//import { appid1, appid2 } from "./apikeys.js";
-
+import { getDrinks } from "./localdata.js";
+//console.log(getDrinks());
 
 // This function should query the cocktaiĺ data base and create an object with
 // all required data
@@ -59,6 +59,57 @@ const getCocktail = (search) => {
 
 };
 
+// This function get a list of random cocktails
+const getRandomCocktails = () => {
+    const lttr = String.fromCharCode(Math.floor(65 + Math.random() * 25));
+    const apiURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${lttr}`;
+    fetch(apiURL)
+        .then((response) => {
+            if (response.status >= 200 && response.status <= 299) {
+                return response.json();
+            } else {
+                throw Error(response.statusText);
+            }
+        })
+        .then(data => {
+            if (data.drinks.length === 0) {
+                let elements = '';
+                const drinks = getDrinks();
+                for (let i = 0; i < drinks.length; i++) {
+                    let responseData = data.drinks[i];
+                    if (i === 4) return;
+                    elements += `<div class="my-5">
+                    <h5 class="pop-title">${responseData.strDrink}</h5>
+                    <img src="${responseData.strDrinkThumb}"
+                        alt="" srcset="" class="w-100 img-fluid rounded pop-image" loading="lazy">
+                    <p class="pop-type">${responseData.strAlcoholic}</p>
+                    <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
+                </div>`;
+
+                    $('#popular-cocktails').html(elements);
+                }
+            } else {
+                let elements = '';
+                for (let i = 0; i < data.drinks.length; i++) {
+                    let responseData = data.drinks[i];
+                    if (i === 4) return;
+
+                    elements += `<div class="my-5">
+                    <h5 class="pop-title">${responseData.strDrink}</h5>
+                    <img src="${responseData.strDrinkThumb}"
+                        alt="" srcset="" class="w-100 img-fluid rounded pop-image" loading="lazy">
+                    <p class="pop-type">${responseData.strAlcoholic}</p>
+                    <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
+                </div>`;
+
+                    $('#popular-cocktails').html(elements);
+                }
+
+            }
+
+        })
+        .catch(err => console.log(err));
+};
 
 // This function should query the wikipedia api and get a description of the cocktail
 const getCocktailDescription = (search) => {
@@ -140,4 +191,4 @@ const getLocalBars = (search) => {
 
 
 
-export { getCocktail, getNavigatorLocation, getCocktailDescription };
+export { getCocktail, getNavigatorLocation, getCocktailDescription, getRandomCocktails };
