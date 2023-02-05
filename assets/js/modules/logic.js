@@ -131,11 +131,4 @@ const getLocalBars = (search) => {
 };
 
 
-
-
-
-
-
-
-
 export { getCocktail, getNavigatorLocation, getCocktailDescription };
