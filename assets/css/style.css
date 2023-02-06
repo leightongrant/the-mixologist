@@ -96,3 +96,12 @@ body {
 .show {
     display: block;
 }
+
+/* Footer */
+svg {
+    fill: #6c757d;
+}
+
+footer .border-top {
+    border-color: #6c757d !important;
+}
