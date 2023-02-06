@@ -64,7 +64,8 @@ const getCocktail = (search) => {
 
 // This function get a list of random cocktails
 const getRandomCocktails = () => {
-    const lttr = String.fromCharCode(Math.floor(65 + Math.random() * 25));
+    let lttr = String.fromCharCode(Math.floor(65 + Math.random() * 25));
+    //lttr = 'u';
     const apiURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${lttr}`;
     fetch(apiURL)
         .then((response) => {
@@ -75,29 +76,12 @@ const getRandomCocktails = () => {
             }
         })
         .then(data => {
-            if (data.drinks.length === 0) {
-                let elements = '';
-                const drinks = getDrinks();
-                for (let i = 0; i < drinks.length; i++) {
-                    let responseData = data.drinks[i];
-                    if (i === 4) return;
-                    elements += `<div class="col-12 bg bg-light rounded border border-1 my-3 py-3"><div class="">
-                    <h5 class="pop-title">${responseData.strDrink}</h5>
-                    <img src="${responseData.strDrinkThumb}"
-                        alt="" srcset="" class="w-100 img-fluid rounded pop-image" loading="lazy">
-                    <p class="pop-type badge rounded-pill text-bg-info my-3">${responseData.strAlcoholic}</p>
-                    <button type="button" class="btn btn-outline-secondary btn-sm">View</button>
-                </div></div>`;
+            let elements = '';
+            for (let i = 0; i < data.drinks.length; i++) {
+                let responseData = data.drinks[i];
+                if (i === 4) return;
 
-                    $('#popular-cocktails').html(elements);
-                }
-            } else {
-                let elements = '';
-                for (let i = 0; i < data.drinks.length; i++) {
-                    let responseData = data.drinks[i];
-                    if (i === 4) return;
-
-                    elements += `<div class="col-12 bg bg-light rounded border border-1 my-3 py-3"><div class="">
+                elements += `<div class="col-12 bg bg-light rounded border border-1 my-3 py-3"><div class="">
                     <h5 class="pop-title">${responseData.strDrink}</h5>
                     <img src="${responseData.strDrinkThumb}"
                         alt="" srcset="" class="w-100 img-fluid rounded pop-image" loading="lazy">
@@ -105,13 +89,30 @@ const getRandomCocktails = () => {
                     <button type="button" class="btn btn-outline-secondary btn-sm">View</button>
                 </div></div>`;
 
-                    $('#popular-cocktails').html(elements);
-                }
-
+                $('#popular-cocktails').html(elements);
             }
-
         })
-        .catch(err => console.log(err));
+        .catch((err) => {
+            getRandomCocktails();
+            // let elements = '';
+            // const drinks = getDrinks();
+            // console.log(drinks.length);
+
+            // for (let i = 0; i < drinks.length; i++) {
+            //     let responseData = err.drinks[i];
+            //     if (i === 4) return;
+            //     elements += `<div class="col-12 bg bg-light rounded border border-1 my-3 py-3"><div class="">
+            //         <h5 class="pop-title">${responseData.strDrink}</h5>
+            //         <img src="${responseData.strDrinkThumb}"
+            //             alt="" srcset="" class="w-100 img-fluid rounded pop-image" loading="lazy">
+            //         <p class="pop-type badge rounded-pill text-bg-info my-3">${responseData.strAlcoholic}</p>
+            //         <button type="button" class="btn btn-outline-secondary btn-sm">View</button>
+            //     </div></div>`;
+
+            //     $('#popular-cocktails').html(elements);
+            // }
+
+        });
 };
 
 

@@ -37,6 +37,12 @@ $(function () {
         }
     });
 
+    // Popular Cocktails view event
+    $('#popular-cocktails').on('click', (e) => {
+        e.stopPropagation();
+        main($(e.target).parent()[0].children[0].innerText);
+    });
+
 
 
     // Renders random cocktails sidebar
