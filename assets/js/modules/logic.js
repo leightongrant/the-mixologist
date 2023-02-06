@@ -111,6 +111,8 @@ const getRandomCocktails = () => {
         .catch(err => console.log(err));
 };
 
+
+
 // This function should query the wikipedia api and get a description of the cocktail
 const getCocktailDescription = (search) => {
     const apiURL = `https://en.wikipedia.org/w/api.php?action=query&origin=*&list=search&utf8=&format=json&srsearch=${search} cocktail`;
@@ -133,20 +135,6 @@ const getCocktailDescription = (search) => {
 };
 
 
-// This function should request a location from the browser
-const getNavigatorLocation = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-
-        console.log(lat, lon);
-
-    }, err => {
-        console.log(err);
-    });
-
-};
-
 
 
 // This function should query openweathermap api for a city name to get lat and lon data
@@ -165,21 +153,6 @@ const getLocation = (city, appid) => {
 
 };
 
-// This function should query the local business api and create an object with required data
-const getLocalBars = (search) => {
-    const apiURL = `https://en.wikipedia.org/w/api.php?action=query&origin=*&list=search&utf8=&format=json&srsearch=${search}`;
-    fetch(apiURL)
-        .then((response) => {
-            if (response.status >= 200 && response.status <= 299) {
-                return response.json();
-            } else {
-                throw Error(response.statusText);
-            }
-        })
-        .then(data => console.log(data))
-        .catch(err => console.log(err));
-
-};
 
 
 
@@ -190,5 +163,4 @@ const getLocalBars = (search) => {
 
 
 
-
-export { getCocktail, getNavigatorLocation, getCocktailDescription, getRandomCocktails };
+export { getCocktail, getCocktailDescription, getRandomCocktails };

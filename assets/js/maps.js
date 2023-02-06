@@ -1,62 +1,55 @@
 // Google maps
 
-// function initMap () {
-//     const yourLocation = { lat: 52.9259504, lng: -0.6583851 };
-//     const map = new google.maps.Map(document.getElementById("map"), {
-//         center: yourLocation,
-//         zoom: 13,
-//     });
-
-//     const marker = new google.maps.Marker({
-//         position: yourLocation,
-//         map: map,
-//     });
-
-// };
-
-
-// window.initMap = initMap;
-
-
-
 let map;
 let service;
 let infowindow;
 
-function initMap () {
-    let lat = 51.5128357;
-    let lon = -0.1352709;
-    const myLocation = new google.maps.LatLng(lat, lon);
+function initMap (searchText = 'bars') {
 
-    infowindow = new google.maps.InfoWindow();
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: myLocation,
-        zoom: 15,
-    });
+    // Request a location from the browser
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
 
-    const request = {
-        type: ["bar"],
-        radius: 2500,
-        location: myLocation
+            const myLocation = new google.maps.LatLng(lat, lon);
+
+            infowindow = new google.maps.InfoWindow();
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: myLocation,
+                zoom: 15,
+            });
+
+
+            const request = {
+                type: [searchText],
+                radius: 3000,
+                location: myLocation
+            };
+
+            service = new google.maps.places.PlacesService(map);
+
+            service.textSearch(request, (results, status) => {
+                if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+                    const highlyRatedBars = [];
+                    for (let i = 0; i < results.length; i++) {
+
+                        createMarker(results[i]);
+                        createDataArray(results[i], highlyRatedBars);
+
+                    }
+                    createCards(highlyRatedBars.sort((x, y) => x[0] - y[0]).reverse());
+
+                    //console.log(highlyRatedBars);
+                    map.setCenter(results[0].geometry.location);
+                }
+            });
+
+        }, err => {
+            console.log(err);
+        });
+
     };
-
-    service = new google.maps.places.PlacesService(map);
-
-    service.textSearch(request, (results, status) => {
-        if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-            const highlyRatedBars = [];
-            for (let i = 0; i < results.length; i++) {
-
-                createMarker(results[i]);
-                createDataArray(results[i], highlyRatedBars);
-
-            }
-            createCards(highlyRatedBars.sort((x, y) => x[0] - y[0]).reverse());
-
-            //console.log(highlyRatedBars);
-            map.setCenter(results[0].geometry.location);
-        }
-    });
 
 
 
@@ -107,5 +100,8 @@ function createMarker (place) {
         });
     });
 }
+
+
+
 
 window.initMap = initMap;

@@ -1,7 +1,13 @@
-import { getCocktail, getCocktailDescription, getNavigatorLocation, getRandomCocktails } from "./modules/logic.js";
+import { getCocktail, getCocktailDescription, getRandomCocktails } from "./modules/logic.js";
+
+
 
 
 $(function () {
+
+    // Hide location info
+    $('.location').addClass('hide');
+
     // Main function 
     const main = (search) => {
         getCocktail(search);
@@ -20,17 +26,19 @@ $(function () {
         main(userSearch);
     });
 
+    // Get location Event Handlers    
+    $('#location-buttons').on('click', (e) => {
+        e.stopPropagation();
+        if (navigator.geolocation) {
+            $('.location').addClass('show');
+            location.assign('#google-map');
+            initMap(e.target.attributes.id.value);
+        }
+    });
 
 
 
-
-
-    // if (navigator.geolocation) {
-    //     getNavigatorLocation();
-    // }
-
-    //window.initMap = initMap;
-
+    // Renders random cocktails sidebar
     getRandomCocktails();
 
 

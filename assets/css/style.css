@@ -88,3 +88,11 @@ body {
     height: 20vh;
     object-fit: cover;
 }
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}

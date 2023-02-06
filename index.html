@@ -62,9 +62,12 @@
                                 <div class="row g-0">
 
                                     <div class="col">
-                                        <h2 class="section-title cocktail-title">
-                                            <!-- Margarita -->
-                                        </h2>
+                                        <div class="d-flex gap-3">
+                                            <h2 class="section-title cocktail-title">
+                                                <!-- Margarita -->
+                                            </h2>
+                                            <p class="drink-type"></p>
+                                        </div>
                                         <hr class="hr hr-blurry mb-3" />
 
                                         <img src="" loading="lazy" class="w-100 img-fluid rounded cocktail-image"
@@ -72,8 +75,6 @@
                                         <h5 class="item-title description mt-5 my-3">Description</h5>
                                         <p class="item-text cocktail-description">
                                         </p>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -98,9 +99,14 @@
                                     <p class="item-text instructions">
                                         <!-- Instructions -->
                                     </p>
-
-                                    <p class="item-text">Date Modified: <small class="text-muted">2015-08-18
-                                            14:42:59</small></p>
+                                    <div class="d-flex gap-3 mt-5" id="location-buttons">
+                                        <button type="button" class="btn btn-primary" id="bars"><i
+                                                class="fa-solid fa-map-location-dot" name="bars"></i> Find Bars Near
+                                            me</button>
+                                        <button type="button" class="btn btn-primary" id="stores"><i
+                                                class="fa-solid fa-map-location-dot" name="stores"></i> Find Stores Near
+                                            Me</button>
+                                    </div>
 
                                     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                                 </div>
@@ -115,34 +121,7 @@
                             <h2 class="aside-title">Popular Cocktails</h2>
                             <div class="col" id="popular-cocktails">
 
-                                <div class="my-5">
-                                    <h5>Bloody Mary</h5>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Di_mare_%28Bloody_Mary%29.jpg/640px-Di_mare_%28Bloody_Mary%29.jpg"
-                                        alt="" srcset="" class="w-100 img-fluid rounded" loading="lazy">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                    <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
-                                </div>
-                                <div class="my-5">
-                                    <h5>Margarita</h5>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Maya_-_2021-06-26_-_Sarah_Stierch.jpg/640px-Maya_-_2021-06-26_-_Sarah_Stierch.jpg"
-                                        alt="" srcset="" class="w-100 img-fluid rounded" loading="lazy">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                    <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
-                                </div>
-                                <div class="my-5">
-                                    <h5>Mocktail</h5>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Pink_Berry_Frozen_Smoothie_Wth_Orange_Slice_%282795942099%29.jpg/640px-Pink_Berry_Frozen_Smoothie_Wth_Orange_Slice_%282795942099%29.jpg"
-                                        alt="" srcset="" class="w-100 img-fluid rounded" loading="lazy">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                    <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
-                                </div>
-                                <div class="my-5">
-                                    <h5>Mojito</h5>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mojito_3.jpg/640px-Mojito_3.jpg"
-                                        alt="" srcset="" class="w-100 img-fluid rounded" loading="lazy">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                    <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -151,78 +130,29 @@
             </div> <!--main row-->
         </div>
     </main>
-    <section id="local-bars" class="py-5">
-        <h2 class="section-title text-center mb-5">Top Rated Bars</h2>
+    <section id="location" class="location">
+        <section id="local-bars" class="py-5">
+            <h2 class="section-title text-center mb-5">Top Rated Bars</h2>
 
-        <div class="container">
-            <div class="row row-cols-sm-2 row-cols-md-4 g-3 g-md-3 p-2" id="data-cards">
-
-                <div class="col">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <span class="card-icon">icon</span>
-                            <h5 class="card-title">Bar Name</h5>
-                            <p class="card-text"><i class="fa-solid fa-location-dot"></i></p>
-                            <p class="card-text"><i class="fa-solid fa-star"></i></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <span class="card-icon">icon</span>
-                            <h5 class="card-title"></h5>
-                            <p class="card-text"><i class="fa-solid fa-location-dot"></i></p>
-                            <p class="card-text"><i class="fa-solid fa-star"></i></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <span class="card-icon">icon</span>
-                            <h5 class="card-title"></h5>
-                            <p class="card-text"><i class="fa-solid fa-location-dot"></i></p>
-                            <p class="card-text"><i class="fa-solid fa-star"></i></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <span class="card-icon">icon</span>
-                            <h5 class="card-title"></h5>
-                            <p class="card-text"><i class="fa-solid fa-location-dot"></i></p>
-                            <p class="card-text"><i class="fa-solid fa-star"></i></p>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-            </div>
-        </div>
-    </section>
-    <section id="google-map">
-        <div class="">
-            <div class="row">
-                <div class="col">
-
-                    <div class="map" id="map" style="height: 400px;">
-                        <p>Google Maps</p>
-                    </div>
-
+            <div class="container">
+                <div class="row row-cols-sm-2 row-cols-md-4 g-3 g-md-3 p-2" id="data-cards">
+                    <!-- Local Places -->
                 </div>
             </div>
-        </div>
+        </section>
+        <section id="google-map">
+            <div class="">
+                <div class="row">
+                    <div class="col">
+
+                        <div class="map" id="map" style="height: 400px;">
+                            <!-- Google Maps -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
     <footer class="bg bg-dark">
         <div class="text-light d-flex justify-content-center">
