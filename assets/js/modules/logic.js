@@ -47,6 +47,9 @@ const getCocktail = (search) => {
             });
             $('.ingredients').html(ingredientList);
 
+            // Render cocktail type
+            $('.cocktail-type').text(cocktailData.type);
+
             // Render instructions
             $('.instructions').text(cocktailData.instructions);
 
@@ -78,13 +81,13 @@ const getRandomCocktails = () => {
                 for (let i = 0; i < drinks.length; i++) {
                     let responseData = data.drinks[i];
                     if (i === 4) return;
-                    elements += `<div class="my-5">
+                    elements += `<div class="col-12 bg bg-light rounded border border-1 my-3 py-3"><div class="">
                     <h5 class="pop-title">${responseData.strDrink}</h5>
                     <img src="${responseData.strDrinkThumb}"
                         alt="" srcset="" class="w-100 img-fluid rounded pop-image" loading="lazy">
-                    <p class="pop-type">${responseData.strAlcoholic}</p>
-                    <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
-                </div>`;
+                    <p class="pop-type badge rounded-pill text-bg-info my-3">${responseData.strAlcoholic}</p>
+                    <button type="button" class="btn btn-outline-secondary btn-sm">View</button>
+                </div></div>`;
 
                     $('#popular-cocktails').html(elements);
                 }
@@ -94,13 +97,13 @@ const getRandomCocktails = () => {
                     let responseData = data.drinks[i];
                     if (i === 4) return;
 
-                    elements += `<div class="my-5">
+                    elements += `<div class="col-12 bg bg-light rounded border border-1 my-3 py-3"><div class="">
                     <h5 class="pop-title">${responseData.strDrink}</h5>
                     <img src="${responseData.strDrinkThumb}"
                         alt="" srcset="" class="w-100 img-fluid rounded pop-image" loading="lazy">
-                    <p class="pop-type">${responseData.strAlcoholic}</p>
-                    <a href="http://" target="_blank" rel="noopener noreferrer">View</a>
-                </div>`;
+                    <p class="pop-type badge rounded-pill text-bg-info my-3">${responseData.strAlcoholic}</p><br>
+                    <button type="button" class="btn btn-outline-secondary btn-sm">View</button>
+                </div></div>`;
 
                     $('#popular-cocktails').html(elements);
                 }

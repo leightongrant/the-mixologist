@@ -31,7 +31,8 @@ $(function () {
         e.stopPropagation();
         if (navigator.geolocation) {
             $('.location').addClass('show');
-            location.assign('#google-map');
+            location.assign('#local-places');
+            $('.find-place').text(e.target.attributes.id.value);
             initMap(e.target.attributes.id.value);
         }
     });
