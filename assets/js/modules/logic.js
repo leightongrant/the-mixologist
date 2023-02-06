@@ -1,5 +1,3 @@
-import { getDrinks } from "./localdata.js";
-//console.log(getDrinks());
 
 // This function should query the cocktaiĺ data base and create an object with
 // all required data
@@ -58,7 +56,9 @@ const getCocktail = (search) => {
 
             //console.log(cocktailData);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            $('#notFoundModal').modal("show");
+        });
 
 };
 
@@ -134,7 +134,8 @@ const getCocktailDescription = (search) => {
             //console.log(data.query.search[0].title);
             //console.log(data.query.search[0].snippet);
         })
-        .catch(err => console.log(err));
+        .catch(err => err);
+
 
 };
 

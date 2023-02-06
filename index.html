@@ -22,6 +22,7 @@
 </head>
 
 <body>
+
     <header>
         <div class="bg-dark text-secondary px-4 py-1 text-center">
             <div class="py-2">
@@ -29,11 +30,8 @@
                 <div class="col-lg-6 mx-auto">
 
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <!-- <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom
-                            button</button>
-                        <button type="button" class="btn btn-outline-light btn-lg px-4">Secondary</button> -->
-                        <img src="./assets/images/logo.png" alt="mixologis-logo" class="img-fluid" srcset=""
-                            style="width: 600px">
+                        <a href="#"><img src="./assets/images/logo.png" alt="mixologis-logo" class="img-fluid" srcset=""
+                                style="width: 600px"></a>
                     </div>
 
                     <section id="search">
@@ -247,7 +245,24 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places&callback=initMap&v=weekly"
         defer></script>
 
-
+    <!-- Modal -->
+    <div class="modal fade" id="notFoundModal" tabindex="-1" aria-labelledby="notFoundModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notFoundModalLabel"><i class="fa-solid fa-exclamation"></i> Not Found
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    The Cocktail you are looking for is not found. Please check your spelling and try again.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
