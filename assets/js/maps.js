@@ -4,8 +4,8 @@ let map;
 let service;
 let infowindow;
 
-function initMap (searchText = 'bars') {
-
+function initMap (searchText) {
+console.log(searchText)
     // Request a location from the browser
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -22,9 +22,10 @@ function initMap (searchText = 'bars') {
 
 
             const request = {
-                type: [searchText],
+                //type: [searchText],
                 radius: 3000,
-                location: myLocation
+                location: myLocation,
+                query: searchText
             };
 
             service = new google.maps.places.PlacesService(map);
