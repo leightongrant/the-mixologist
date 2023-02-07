@@ -43,13 +43,14 @@
                                         <i class="fa fa-search"></i>
                                         <input type="text" class="form-control cocktail-search-frm"
                                             placeholder="Search for a cocktail">
-                                            <select id="base-ingredient">
-                                                <option value="" disabled selected>Select Base Ingredient</option>
-                                              </select>
-                                              <select id="cocktails">
-                                                <option value="" disabled selected>Select Cocktail</option>
-                                              </select>
-                                        <button class="btn btn-primary cocktail-search-btn" type="submit">Search</button>
+                                        <select id="base-ingredient">
+                                            <option value="" disabled selected>Select Base Ingredient</option>
+                                        </select>
+                                        <select id="cocktails">
+                                            <option value="" disabled selected>Select Cocktail</option>
+                                        </select>
+                                        <button class="btn btn-primary cocktail-search-btn"
+                                            type="submit">Search</button>
                                     </div>
 
                                 </div>
@@ -253,16 +254,17 @@
         defer></script>
 
     <!-- Modal -->
-    <div class="modal fade" id="notFoundModal" tabindex="-1" aria-labelledby="notFoundModalLabel" aria-hidden="true">
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="notFoundModalLabel"><i class="fa-solid fa-exclamation"></i> Not Found
+                <div class="modal-header alert alert-warning">
+                    <h5 class="modal-title" id="errorModalLabel"><i class="fa-solid fa-exclamation"></i> <span
+                            id="modal-title"><!--Modal Title--></span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    The Cocktail you are looking for is not found. Please check your spelling and try again.
+                <div class="modal-body" id="modal-body">
+                    <!-- Modal Body -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
