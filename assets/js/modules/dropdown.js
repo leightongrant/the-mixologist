@@ -1,55 +1,46 @@
-const baseIngredients = ['rum', 'vodka', 'gin', 'tequila', 'whiskey'];
-
-const selectBaseIngredient = document.querySelector('#base-ingredient');
-
-baseIngredients.forEach(ingredient => {
-  const option = document.createElement('option');
-  option.value = ingredient;
-  option.text = ingredient;
-  selectBaseIngredient.appendChild(option);
-});
-
-const selectCocktail = document.querySelector('#cocktails');
-
-selectBaseIngredient.addEventListener('change', async function() {
-  const selectedIngredient = this.value;
-  const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${selectedIngredient}`);
-  const data = await response.json();
-  selectCocktail.innerHTML = '';
-  data.drinks.forEach(drink => {
-    const option = document.createElement('option');
-    option.value = drink.idDrink;
-    option.text = drink.strDrink;
-    selectCocktail.appendChild(option);
+$(document).ready(function() {
+  const baseIngredients = ['rum', 'vodka', 'gin', 'tequila', 'whiskey'];
+  const selectBaseIngredient = $('#base-ingredient');
+  baseIngredients.forEach(ingredient => {
+    selectBaseIngredient.append(`<option value="${ingredient}">${ingredient}</option>`);
   });
-});
 
-// Event listener for the dropdown menu
-document.querySelector("#cocktails").addEventListener("change", async function() {
-  // Get the selected cocktail's id
-  const id = this.value;
+  selectBaseIngredient.on('change', function() {
+    const selectedIngredient = this.value;
+    $.getJSON(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${selectedIngredient}`, function(data) {
+      const selectCocktail = $('#cocktails');
+      selectCocktail.empty();
+      data.drinks.forEach(drink => {
+        selectCocktail.append(`<option value="${drink.idDrink}">${drink.strDrink}</option>`);
+      });
+    });
+  });
 
-  // Fetch the cocktail data from the API
-  const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
-  const data = await response.json();
-  const cocktail = data.drinks[0];
+  $('#cocktails').on('change', function() {
+    const selectedOption = $(this).find(':selected').text();
+    getCocktailDescription(selectedOption);
+  });
 
-  // Get the ingredients, instructions, and image URL
-  const ingredients = [];
-  for (let i = 1; i <= 15; i++) {
-    if (cocktail[`strIngredient${i}`]) {
-      ingredients.push(
-        `${cocktail[`strMeasure${i}`]} ${cocktail[`strIngredient${i}`]}`
-      );
-    }
+  function getCocktailDescription(selectedOption) {
+    $.getJSON(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${selectedOption}`, function(data) {
+      const cocktail = data.drinks[0];
+      const ingredients = [];
+      for (let i = 1; i <= 15; i++) {
+        if (cocktail[`strIngredient${i}`]) {
+          ingredients.push(`${cocktail[`strMeasure${i}`]} ${cocktail[`strIngredient${i}`]}`);
+        }
+      }
+      const instructions = cocktail.strInstructions;
+      const imageURL = cocktail.strDrinkThumb;
+      $('.ingredients').html(ingredients.map(ingredient => `<li>${ingredient}</li>`).join(''));
+      $('.instructions').text(instructions);
+    });
   }
-
-  const instructions = cocktail.strInstructions;
-  const imageURL = cocktail.strDrinkThumb;
-
-  // Update the HTML elements with the cocktail data
-  document.querySelector(".ingredients").innerHTML = ingredients
-    .map(ingredient => `<li>${ingredient}</li>`)
-    .join("");
-  document.querySelector(".instructions").textContent = instructions;
 });
+
+
+window.onload = function() {
+  document.getElementById("cocktails").addEventListener("change", function() {
+    getCocktailDescription(this.value);
+  });
+};
