@@ -54,7 +54,8 @@ const getCocktail = (search) => {
             // Render Image
             $('.cocktail-image').attr({ 'src': cocktailData.image, 'alt': cocktailData.name });
 
-            //console.log(cocktailData);
+            // Render Cocktail title
+            $('.cocktail-title').text(cocktailData.name);
         })
         .catch(err => {
             $('#notFoundModal').modal("show");
@@ -94,24 +95,6 @@ const getRandomCocktails = () => {
         })
         .catch((err) => {
             getRandomCocktails();
-            // let elements = '';
-            // const drinks = getDrinks();
-            // console.log(drinks.length);
-
-            // for (let i = 0; i < drinks.length; i++) {
-            //     let responseData = err.drinks[i];
-            //     if (i === 4) return;
-            //     elements += `<div class="col-12 bg bg-light rounded border border-1 my-3 py-3"><div class="">
-            //         <h5 class="pop-title">${responseData.strDrink}</h5>
-            //         <img src="${responseData.strDrinkThumb}"
-            //             alt="" srcset="" class="w-100 img-fluid rounded pop-image" loading="lazy">
-            //         <p class="pop-type badge rounded-pill text-bg-info my-3">${responseData.strAlcoholic}</p>
-            //         <button type="button" class="btn btn-outline-secondary btn-sm">View</button>
-            //     </div></div>`;
-
-            //     $('#popular-cocktails').html(elements);
-            // }
-
         });
 };
 
@@ -129,39 +112,13 @@ const getCocktailDescription = (search) => {
             }
         })
         .then(data => {
-            $('.cocktail-title').text(data.query.search[0].title);
             $('.cocktail-description').html(data.query.search[0].snippet);
-            //console.log(data.query.search[0].title);
-            //console.log(data.query.search[0].snippet);
+
         })
         .catch(err => err);
 
 
 };
-
-
-
-
-// This function should query openweathermap api for a city name to get lat and lon data
-const getLocation = (city, appid) => {
-    const apiURL = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=5&appid=${appid}`;
-    fetch(apiURL)
-        .then((response) => {
-            if (response.status >= 200 && response.status <= 299) {
-                return response.json();
-            } else {
-                throw Error(response.statusText);
-            }
-        })
-        .then(data => console.log(data))
-        .catch(err => console.log(err));
-
-};
-
-
-
-
-
 
 
 

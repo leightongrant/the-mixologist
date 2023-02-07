@@ -1,8 +1,6 @@
 import { getCocktail, getCocktailDescription, getRandomCocktails } from "./modules/logic.js";
 
 
-
-
 $(function () {
 
     // Hide location info
@@ -47,9 +45,6 @@ $(function () {
 
     // Renders random cocktails sidebar
     getRandomCocktails();
-
-
-
 
 
 });

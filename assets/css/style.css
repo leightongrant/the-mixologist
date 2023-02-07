@@ -25,7 +25,7 @@ body {
 
 .search input {
 
-    height: 60px;
+    height: 40px;
     text-indent: 25px;
     border: 2px solid #d6d4d4;
 
@@ -44,7 +44,7 @@ body {
 .search .fa-search {
 
     position: absolute;
-    top: 20px;
+    top: 13px;
     left: 16px;
 
 }
@@ -52,12 +52,10 @@ body {
 .search button {
 
     position: absolute;
-    top: 5px;
-    right: 5px;
-    height: 50px;
+    top: 2px;
+    right: 4px;
+    height: 35px;
     width: 110px;
-    background: blue;
-
 }
 
 /* Google Maps */
@@ -81,6 +79,11 @@ body {
 .cocktail-image {
     height: 70vh;
     object-fit: cover;
+}
+
+#recipe {
+    background: aliceblue;
+    padding: 0 15px 15px 15px;
 }
 
 /* Popular */
