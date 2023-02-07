@@ -1,5 +1,3 @@
-//import { appid1, appid2 } from "./apikeys.js";
-
 
 // This function should query the cocktaiĺ data base and create an object with
 // all required data
@@ -47,17 +45,59 @@ const getCocktail = (search) => {
             });
             $('.ingredients').html(ingredientList);
 
+            // Render cocktail type
+            $('.cocktail-type').text(cocktailData.type);
+
             // Render instructions
             $('.instructions').text(cocktailData.instructions);
 
             // Render Image
             $('.cocktail-image').attr({ 'src': cocktailData.image, 'alt': cocktailData.name });
 
-            //console.log(cocktailData);
+            // Render Cocktail title
+            $('.cocktail-title').text(cocktailData.name);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            $('#notFoundModal').modal("show");
+        });
 
 };
+
+// This function get a list of random cocktails
+const getRandomCocktails = () => {
+    let lttr = String.fromCharCode(Math.floor(65 + Math.random() * 25));
+    //lttr = 'u';
+    const apiURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${lttr}`;
+    fetch(apiURL)
+        .then((response) => {
+            if (response.status >= 200 && response.status <= 299) {
+                return response.json();
+            } else {
+                throw Error(response.statusText);
+            }
+        })
+        .then(data => {
+            let elements = '';
+            for (let i = 0; i < data.drinks.length; i++) {
+                let responseData = data.drinks[i];
+                if (i === 4) return;
+
+                elements += `<div class="col-12 bg bg-light rounded border border-1 my-3 py-3"><div class="">
+                    <h5 class="pop-title">${responseData.strDrink}</h5>
+                    <img src="${responseData.strDrinkThumb}"
+                        alt="" srcset="" class="w-100 img-fluid rounded pop-image" loading="lazy">
+                    <p class="pop-type badge rounded-pill text-bg-info my-3">${responseData.strAlcoholic}</p><br>
+                    <button type="button" class="btn btn-outline-secondary btn-sm">View</button>
+                </div></div>`;
+
+                $('#popular-cocktails').html(elements);
+            }
+        })
+        .catch((err) => {
+            getRandomCocktails();
+        });
+};
+
 
 
 // This function should query the wikipedia api and get a description of the cocktail
@@ -72,64 +112,20 @@ const getCocktailDescription = (search) => {
             }
         })
         .then(data => {
-            $('.cocktail-title').text(data.query.search[0].title);
             $('.cocktail-description').html(data.query.search[0].snippet);
-            //console.log(data.query.search[0].title);
-            //console.log(data.query.search[0].snippet);
+
         })
-        .catch(err => console.log(err));
+        .catch(err => err);
 
-};
-
-
-// This function should request a location from the browser
-const getNavigatorLocation = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-
-        console.log(lat, lon);
-
-    }, err => {
-        console.log(err);
-    });
 
 };
 
 
 
-// This function should query openweathermap api for a city name to get lat and lon data
-const getLocation = (city, appid) => {
-    const apiURL = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=5&appid=${appid}`;
-    fetch(apiURL)
-        .then((response) => {
-            if (response.status >= 200 && response.status <= 299) {
-                return response.json();
-            } else {
-                throw Error(response.statusText);
-            }
-        })
-        .then(data => console.log(data))
-        .catch(err => console.log(err));
-
-};
-
-// This function should query the local business api and create an object with required data
-const getLocalBars = (search) => {
-    const apiURL = `https://en.wikipedia.org/w/api.php?action=query&origin=*&list=search&utf8=&format=json&srsearch=${search}`;
-    fetch(apiURL)
-        .then((response) => {
-            if (response.status >= 200 && response.status <= 299) {
-                return response.json();
-            } else {
-                throw Error(response.statusText);
-            }
-        })
-        .then(data => console.log(data))
-        .catch(err => console.log(err));
-
-};
 
 
-export { getCocktail, getNavigatorLocation, getCocktailDescription };
 
+
+
+
+export { getRandomCocktail, getCocktailDescription, getCocktail };
