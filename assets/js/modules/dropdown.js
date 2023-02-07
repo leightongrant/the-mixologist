@@ -21,9 +21,9 @@ $(document).ready(function () {
   });
 
   $('#cocktails').on('change', function() {
-    const selectedOptionValue = $(this).find(':selected').text();
-    $(".cocktail-search-frm").val(selectedOptionValue);
-    getCocktailDescription(selectedOptionValue);
+    const selectedOption = $(this).find(':selected').text();
+    $(".cocktail-search-frm").val(selectedOption);
+    getCocktailDescription(selectedOption);
   });
   
   
@@ -46,3 +46,4 @@ $(document).ready(function () {
   }
   
 });
+
