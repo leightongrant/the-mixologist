@@ -128,4 +128,4 @@ const getCocktailDescription = (search) => {
 
 
 
-export { getRandomCocktail, getCocktailDescription, getCocktail };
+export { getRandomCocktails, getCocktailDescription, getCocktail };

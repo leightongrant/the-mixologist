@@ -17,12 +17,14 @@ $(document).ready(function() {
   });
 
   $('#cocktails').on('change', function() {
-    const selectedOption = $(this).find(':selected').text();
-    getCocktailDescription(selectedOption);
+    const selectedOptionValue = $(this).find(':selected').text();
+    $(".cocktail-search-frm").val(selectedOptionValue);
+    getCocktailDescription(selectedOptionValue);
   });
-
-  function getCocktailDescription(selectedOption) {
-    $.getJSON(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${selectedOption}`, function(data) {
+  
+  
+  function getCocktailDescription(selectedOptionValue) {
+    $.getJSON(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${selectedOptionValue}`, function(data) {
       const cocktail = data.drinks[0];
       const ingredients = [];
       for (let i = 1; i <= 15; i++) {
@@ -31,9 +33,12 @@ $(document).ready(function() {
         }
       }
       const instructions = cocktail.strInstructions;
-      const imageURL = cocktail.strDrinkThumb;
       $('.ingredients').html(ingredients.map(ingredient => `<li>${ingredient}</li>`).join(''));
       $('.instructions').text(instructions);
+
+      $('.cocktail-search-frm').val(selectedOptionValue);
+      $('.cocktail-search-btn').submit();
     });
   }
+  
 });
