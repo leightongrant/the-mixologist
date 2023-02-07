@@ -131,10 +131,19 @@ const getCocktailDescription = (search) => {
 
 
 
+// Main function 
+const main = (search) => {
+    getCocktail(search);
+    getCocktailDescription(search);
+
+};
 
 
 
 
 
 
-export { getRandomCocktail, getCocktailDescription, getCocktail };
+
+
+
+export { getRandomCocktails, getCocktailDescription, getCocktail, main };
