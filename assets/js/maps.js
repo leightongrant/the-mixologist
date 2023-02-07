@@ -1,4 +1,3 @@
-
 // Google maps
 
 let map;
@@ -47,10 +46,7 @@ function initMap (searchText = 'bars') {
             });
 
         }, err => {
-            //console.log(err);
-            const errMsg = 'Map Error';
-            const mainMessage = err;
-            showModal(errMsg, mainMessage);
+            console.log(err);
         });
 
     };
@@ -104,13 +100,6 @@ function createMarker (place) {
         });
     });
 }
-
-// This function displays a modal
-const showModal = (errMsg, mainMessage) => {
-    $('#modal-title').text(errMsg);
-    $('#modal-body').text(mainMessage);
-    $('#errorModal').modal("show");
-};
 
 
 
