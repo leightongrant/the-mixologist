@@ -58,9 +58,18 @@ const getCocktail = (search) => {
             $('.cocktail-title').text(cocktailData.name);
         })
         .catch(err => {
-            $('#notFoundModal').modal("show");
+            const errMsg = 'Cocktail Not Found';
+            const mainMessage = 'The Cocktail you are looking for is not found. Please check your spelling and try again.';
+            showModal(errMsg, mainMessage);
         });
 
+};
+
+// This function displays a modal
+const showModal = (errMsg, mainMessage) => {
+    $('#modal-title').text(errMsg);
+    $('#modal-body').text(mainMessage);
+    $('#errorModal').modal("show");
 };
 
 // This function get a list of random cocktails
