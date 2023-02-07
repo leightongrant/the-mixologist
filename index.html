@@ -43,7 +43,13 @@
                                         <i class="fa fa-search"></i>
                                         <input type="text" class="form-control cocktail-search-frm"
                                             placeholder="Search for a cocktail">
-                                        <button class="btn btn-primary cocktail-search-btn">Search</button>
+                                            <select id="base-ingredient">
+                                                <option value="" disabled selected>Select Base Ingredient</option>
+                                              </select>
+                                              <select id="cocktails">
+                                                <option value="" disabled selected>Select Cocktail</option>
+                                              </select>
+                                        <button class="btn btn-primary cocktail-search-btn" type="submit">Search</button>
                                     </div>
 
                                 </div>
@@ -236,6 +242,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
     <!-- Main script -->
+    <script src="./assets/js/modules/dropdown.js" type="module"></script>
     <script src="./assets/js/script.js" type="module"></script>
     <script src="./assets/js/maps.js"></script>
 
