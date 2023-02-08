@@ -31,10 +31,10 @@ const getCocktail = (search) => {
 
             // Loop through response to get list of ingredients            
             for (let i = 1; i < 16; i++) {
-                if (responseData[`strIngredient${i}`] === null) {
+                if (responseData[`strMeasure${i}`] === null || responseData[`strIngredient${i}`] === null) {
                     continue;
                 } else {
-                    cocktailData.ingredients.push(responseData[`strIngredient${i}`]);
+                    cocktailData.ingredients.push(responseData[`strMeasure${i}`] + responseData[`strIngredient${i}`]);
                 }
             }
 
