@@ -58,6 +58,11 @@ $(function () {
         $('#settings').addClass('show');
     });
 
+    // Close seting
+    $('#close-button').on('click', () => {
+        $('#settings').removeClass('show');
+    });
+
 
     // Render recommended cocktails if prferences found
     if (localStorage.getItem('favorites')) {
@@ -72,6 +77,7 @@ $(function () {
 
 
 
+    // Carousel events
     $('.carousel-inner').on('mouseenter', () => {
         $('.recommend-view').addClass('recommended-view');
     });
