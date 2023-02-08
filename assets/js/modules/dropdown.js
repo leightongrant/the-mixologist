@@ -2,7 +2,7 @@
 import { main } from "./logic.js";
 
 $(document).ready(function () {
-  const baseIngredients = ['rum', 'vodka', 'gin', 'tequila', 'whiskey'];
+  const baseIngredients = ['Rum', 'Vodka', 'Gin', 'Tequila', 'Whiskey'];
   const selectBaseIngredient = $('#base-ingredient');
   baseIngredients.forEach(ingredient => {
     selectBaseIngredient.append(`<option value="${ingredient}">${ingredient}</option>`);

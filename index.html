@@ -17,7 +17,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico">
 
 </head>
 
@@ -43,14 +43,18 @@
                                         <i class="fa fa-search"></i>
                                         <input type="text" class="form-control cocktail-search-frm"
                                             placeholder="Search for a cocktail">
-                                        <select id="base-ingredient">
-                                            <option value="" disabled selected>Select Base Ingredient</option>
-                                        </select>
-                                        <select id="cocktails">
-                                            <option value="" disabled selected>Select Cocktail</option>
-                                        </select>
+
                                         <button class="btn btn-primary cocktail-search-btn"
                                             type="submit">Search</button>
+                                    </div>
+                                    <div id="cocktail-options" class="p-4">
+                                        <h2 class="text-light text-center mb-1">Or choose one from our list</h2>
+                                        <select id="base-ingredient" class="rounded">
+                                            <option value="" disabled selected>Select Base Ingredient</option>
+                                        </select>
+                                        <select id="cocktails" class="rounded">
+                                            <option value="" disabled selected>Select Cocktail</option>
+                                        </select>
                                     </div>
 
                                 </div>
@@ -132,6 +136,35 @@
                         </div>
                     </section>
 
+                    <section id="location" class="location">
+                        <section id="local-places" class="py-5">
+                            <h2 class="section-title text-center mb-1">Top Rated <span class="find-place"
+                                    style="text-transform: capitalize"></span> Near Me</h2>
+                            <p class="text-center mb-5">Four of the top rated <span class="find-place"></span> close to you. See pins on
+                                map for
+                                more.</p>
+                
+                            <div class="container">
+                                <div class="row row-cols-sm-2 row-cols-md-4 g-3 g-md-3 p-2" id="data-cards">
+                                    <!-- Local Places -->
+                                </div>
+                            </div>
+                        </section>
+                        <section id="google-map">
+                            <div class="">
+                                <div class="row">
+                                    <div class="col">
+                
+                                        <div class="map" id="map" style="height: 400px;">
+                                            <!-- Google Maps -->
+                                        </div>
+                
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
+
                 </div>
                 <aside class="aside col-md-3 py-5">
                     <div class="container">
@@ -148,34 +181,7 @@
             </div> <!--main row-->
         </div>
     </main>
-    <section id="location" class="location">
-        <section id="local-places" class="py-5">
-            <h2 class="section-title text-center mb-1">Top Rated <span class="find-place"
-                    style="text-transform: capitalize"></span> Near Me</h2>
-            <p class="text-center mb-5">Four of the top rated <span class="find-place"></span> close to you. See pins on
-                map for
-                more.</p>
 
-            <div class="container">
-                <div class="row row-cols-sm-2 row-cols-md-4 g-3 g-md-3 p-2" id="data-cards">
-                    <!-- Local Places -->
-                </div>
-            </div>
-        </section>
-        <section id="google-map">
-            <div class="">
-                <div class="row">
-                    <div class="col">
-
-                        <div class="map" id="map" style="height: 400px;">
-                            <!-- Google Maps -->
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
     <footer class="bg bg-dark">
         <!-- <div class="text-light d-flex justify-content-center">
             © 2023, The Mixologist

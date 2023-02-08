@@ -107,30 +107,10 @@ const getRandomCocktails = () => {
         });
 };
 
-const getCocktailDescription = (search) => {
-    const apiURL = `https://en.wikipedia.org/w/api.php?action=query&origin=*&list=search&utf8=&format=json&srsearch=${search} cocktail`;
-    fetch(apiURL)
-      .then((response) => {
-        if (response.status >= 200 && response.status <= 299) {
-          return response.json();
-        } else {
-          throw Error(response.statusText);
-        }
-      })
-      .then(data => {
-        let snippet = data.query.search[0].snippet;
-        if (snippet.toLowerCase().includes("cocktail")) {
-          $('.cocktail-description').html(snippet);
-        } else {
-          $('.cocktail-description').html("No detailed cocktail information was found, but this is a general cocktail recipe.");
-        }
-      })
-      .catch(err => err);
-  };
-  
+
 
 // This function should query the wikipedia api and get a description of the cocktail
-/* const getCocktailDescription = (search) => {
+const getCocktailDescription = (search) => {
     const apiURL = `https://en.wikipedia.org/w/api.php?action=query&origin=*&list=search&utf8=&format=json&srsearch=${search} cocktail`;
     fetch(apiURL)
         .then((response) => {
@@ -148,13 +128,9 @@ const getCocktailDescription = (search) => {
 
 
 };
- */
 
-
-// Main function 
-const main = (search) => {
-    getCocktail(search);
-    getCocktailDescription(search);
+// TODO: Write function to recommend cocktails based on user preferences
+const getRecommendations = () => {
 
 };
 
@@ -163,6 +139,12 @@ const main = (search) => {
 
 
 
+// Main function 
+const main = (search) => {
+    getCocktail(search);
+    getCocktailDescription(search);
+
+};
 
 
 

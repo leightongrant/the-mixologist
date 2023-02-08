@@ -25,7 +25,8 @@ console.log(searchText)
                 //type: [searchText],
                 radius: 3000,
                 location: myLocation,
-                query: searchText
+                query: searchText,
+                fields: ["name", "formatted_address", "opening_hours", "website" ]
             };
 
             service = new google.maps.places.PlacesService(map);
@@ -35,13 +36,12 @@ console.log(searchText)
                     const highlyRatedBars = [];
                     for (let i = 0; i < results.length; i++) {
 
-                        createMarker(results[i]);
+                        getPlaceDetails(results[i])
                         createDataArray(results[i], highlyRatedBars);
 
                     }
                     createCards(highlyRatedBars.sort((x, y) => x[0] - y[0]).reverse());
 
-                    //console.log(highlyRatedBars);
                     map.setCenter(results[0].geometry.location);
                 }
             });
@@ -49,12 +49,7 @@ console.log(searchText)
         }, err => {
             console.log(err);
         });
-
     };
-
-
-
-
 }
 
 function createDataArray (place, bars) {
@@ -93,16 +88,89 @@ function createMarker (place) {
         position: place.geometry.location,
     });
 
+    console.log(place.name)
     google.maps.event.addListener(marker, "click", () => {
-        infowindow.setContent(`${place.name}<br><strong>${place.rating}</strong>` || "");
-        infowindow.open({
-            anchor: marker,
-            map,
-        });
+  
+      const content = document.createElement("div");
+      const nameElement = document.createElement("h2");
+  
+      nameElement.textContent = place.name;
+      content.appendChild(nameElement);
+  
+    /*  Add formatted address to info Window */
+      const placeAddressElement = document.createElement("p");
+  
+      placeAddressElement.textContent = place.formatted_address;
+      content.appendChild(placeAddressElement);
+
+    /* Add isOpen to Info Window */
+        if (place.opening_hours) {
+
+            const isOpenNow = place.opening_hours.isOpen();
+
+            const placeIsOpenElement = document.createElement("p");
+
+            if (isOpenNow) {
+                placeIsOpenElement.textContent = "Currrently Open"
+            }
+            else
+            {
+                placeIsOpenElement.textContent = "Currrently Closed"
+            }
+        content.appendChild(placeIsOpenElement);
+        }
+    
+    /* Add opening times to Info Window */
+      var placeOpenTimesElement = document.createElement("ol");
+
+      content.appendChild(placeOpenTimesElement);
+
+      var placesWeekdayText = place.opening_hours.weekday_text;
+   
+      for (var i=0; i < placesWeekdayText.length; i++) {
+
+        placeOpenTimesElement = placeOpenTimesElement + [i]
+        var placeOpenTimesElement = document.createElement("li");
+        placeOpenTimesElement.textContent = placesWeekdayText[i]
+        content.appendChild(placeOpenTimesElement);
+      }
+
+      placeOpenTimesElement = document.createElement("ol");
+      content.appendChild(placeOpenTimesElement);
+
+      /* Add formatted phone number to Info Window */
+    if (place.formatted_phone_number) {
+    const placePhoneElement = document.createElement("p");
+
+    placePhoneElement.textContent = place.formatted_phone_number
+    content.appendChild(placePhoneElement);
+    }
+
+    /* Add website url as anchor to Info Window */
+
+    if (place.website) {
+      const placeWebsiteElement = document.createElement("a");
+      placeWebsiteElement.setAttribute('href' , place.website )
+      placeWebsiteElement.textContent = place.website
+      content.appendChild(placeWebsiteElement);
+    }
+
+    /* Set Info Window content and open it */
+      infowindow.setContent(content);
+      infowindow.open(map, marker);
     });
+
+
+}
+
+function getPlaceDetails(request) {
+    service.getDetails(request, function (place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            console.log(place)
+            createMarker(place)
+            //return place;
+        }
+    })
 }
 
 
-
-
-window.initMap = initMap;
