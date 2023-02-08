@@ -17,7 +17,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="shortcut icon" href="./assets/images/favicon.ico">
 
 </head>
 
@@ -158,9 +158,9 @@
                                     <hr class="hr hr-blurry" />
                                     <h5 class="item-title mb-3">Ingredients</h5>
 
-                                    <ol class="ingredients">
+                                    <ul class="ingredients">
                                         <!-- ingredients -->
-                                    </ol>
+                                    </ul>
 
                                     <h5 class="item-title mb-3">Instructions</h5>
                                     <p class="item-text instructions">
@@ -230,6 +230,35 @@
                         </div>
                     </section>
 
+                    <section id="location" class="location">
+                        <section id="local-places" class="py-5">
+                            <h2 class="section-title text-center mb-1">Top Rated <span class="find-place"
+                                    style="text-transform: capitalize"></span> Near Me</h2>
+                            <p class="text-center mb-5">Four of the top rated <span class="find-place"></span> close to you. See pins on
+                                map for
+                                more.</p>
+                
+                            <div class="container">
+                                <div class="row row-cols-sm-2 row-cols-md-4 g-3 g-md-3 p-2" id="data-cards">
+                                    <!-- Local Places -->
+                                </div>
+                            </div>
+                        </section>
+                        <section id="google-map">
+                            <div class="">
+                                <div class="row">
+                                    <div class="col">
+                
+                                        <div class="map" id="map" style="height: 400px;">
+                                            <!-- Google Maps -->
+                                        </div>
+                
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
+
                 </div>
                 <aside class="aside col-md-3 py-5">
                     <div class="container">
@@ -246,34 +275,7 @@
             </div> <!--main row-->
         </div>
     </main>
-    <section id="location" class="location">
-        <section id="local-places" class="py-5">
-            <h2 class="section-title text-center mb-1">Top Rated <span class="find-place"
-                    style="text-transform: capitalize"></span> Near Me</h2>
-            <p class="text-center mb-5">Four of the top rated <span class="find-place"></span> close to you. See pins on
-                map for
-                more.</p>
 
-            <div class="container">
-                <div class="row row-cols-sm-2 row-cols-md-4 g-3 g-md-3 p-2" id="data-cards">
-                    <!-- Local Places -->
-                </div>
-            </div>
-        </section>
-        <section id="google-map">
-            <div class="">
-                <div class="row">
-                    <div class="col">
-
-                        <div class="map" id="map" style="height: 400px;">
-                            <!-- Google Maps -->
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
     <footer class="bg bg-dark">
         <!-- <div class="text-light d-flex justify-content-center">
             © 2023, The Mixologist
@@ -343,7 +345,6 @@
     <!-- Main script -->
     <script src="./assets/js/modules/dropdown.js" type="module"></script>
     <script src="./assets/js/script.js" type="module"></script>
-    <script src="./assets/js/maps.js"></script>
 
     <!-- Google Maps -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>

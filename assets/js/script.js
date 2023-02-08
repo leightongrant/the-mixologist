@@ -1,7 +1,9 @@
-import { getRandomCocktails, main, getRecommendations, saveIngredients } from "./modules/logic.js";
+
+import { getCocktailDescription, getCocktail, getRandomCocktails, main, getRecommendations, saveIngredients } from "./modules/logic.js";
+import { initMap } from "./modules/maps.js"
 
 
-$(function () {
+$(function () { 
     //TODO: Change default behavior of wether to show or hide maps on page load
     // Hide location info
     $('.location').addClass('hide');

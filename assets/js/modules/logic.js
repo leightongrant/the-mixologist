@@ -29,12 +29,12 @@ const getCocktail = (search) => {
             cocktailData.instructions = responseData.strInstructions;
             cocktailData.image = responseData.strDrinkThumb;
 
-            // Loop through response to get list of ingredients            
+            // Loop through response to get list of ingredients & measures            
             for (let i = 1; i < 16; i++) {
-                if (responseData[`strIngredient${i}`] === null) {
+                if (responseData[`strMeasure${i}`] === null || responseData[`strIngredient${i}`] === null) {
                     continue;
                 } else {
-                    cocktailData.ingredients.push(responseData[`strIngredient${i}`]);
+                    cocktailData.ingredients.push(responseData[`strMeasure${i}`] + responseData[`strIngredient${i}`]);
                 }
             }
 
@@ -113,21 +113,23 @@ const getRandomCocktails = () => {
 const getCocktailDescription = (search) => {
     const apiURL = `https://en.wikipedia.org/w/api.php?action=query&origin=*&list=search&utf8=&format=json&srsearch=${search} cocktail`;
     fetch(apiURL)
-        .then((response) => {
-            if (response.status >= 200 && response.status <= 299) {
-                return response.json();
-            } else {
-                throw Error(response.statusText);
-            }
-        })
-        .then(data => {
-            $('.cocktail-description').html(data.query.search[0].snippet);
-
-        })
-        .catch(err => err);
-
-
-};
+      .then((response) => {
+        if (response.status >= 200 && response.status <= 299) {
+          return response.json();
+        } else {
+          throw Error(response.statusText);
+        }
+      })
+      .then(data => {
+        let snippet = data.query.search[0].snippet;
+        if (snippet.toLowerCase().includes("cocktail")) {
+          $('.cocktail-description').html(snippet);
+        } else {
+          $('.cocktail-description').html(" A cocktail is an alcoholic drink consisting of a spirit or spirits mixed with other ingredients, such as fruit juice or cream.");
+        }
+      })
+      .catch(err => err);
+  };
 
 // TODO: Write function to recommend cocktails based on user preferences
 const getRecommendations = () => {
