@@ -2,7 +2,7 @@
 import { main } from "./logic.js";
 
 $(document).ready(function () {
-  const baseIngredients = ['rum', 'vodka', 'gin', 'tequila', 'whiskey'];
+  const baseIngredients = ['Rum', 'Vodka', 'Gin', 'Tequila', 'Whiskey'];
   const selectBaseIngredient = $('#base-ingredient');
   baseIngredients.forEach(ingredient => {
     selectBaseIngredient.append(`<option value="${ingredient}">${ingredient}</option>`);
@@ -26,22 +26,4 @@ $(document).ready(function () {
     main(selectedOption);
   });
 
-
-
-
-  //   function getCocktailDescription(selectedOption) {
-  //     $.getJSON(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${selectedOption}`, function(data) {
-  //       const cocktail = data.drinks[0];
-  //       const ingredients = [];
-  //       for (let i = 1; i <= 15; i++) {
-  //         if (cocktail[`strIngredient${i}`]) {
-  //           ingredients.push(`${cocktail[`strMeasure${i}`]} ${cocktail[`strIngredient${i}`]}`);
-  //         }
-  //       }
-  //       const instructions = cocktail.strInstructions;
-  //       const imageURL = cocktail.strDrinkThumb;
-  //       $('.ingredients').html(ingredients.map(ingredient => `<li>${ingredient}</li>`).join(''));
-  //       $('.instructions').text(instructions);
-  //     });
-  //   }
 });
