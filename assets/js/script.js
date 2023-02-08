@@ -1,10 +1,10 @@
 
-import { getRandomCocktails, main, getRecommendations, saveIngredients } from "./modules/logic.js";
+import { getRandomCocktails, main, getRecommendations, saveIngredients, showModal } from "./modules/logic.js";
 import { initMap } from "./modules/maps.js";
 
 
 $(function () {
-    //TODO: Change default behavior of wether to show or hide maps on page load
+
     // Hide location info
     $('.location').addClass('hide');
 
@@ -41,16 +41,23 @@ $(function () {
 
     // Settings
     $('#ingOneOp1').attr('checked', true);
-    $('#ingTwoOp1').attr('checked', true);
+    $('#ingTwoOp2').attr('checked', true);
     $('#settings-form').on('submit', (e) => {
         e.preventDefault();
         let ingOne = $('input[type="radio"][name="ingOneOp"]:checked').val();
         let ingTwo = $('input[type="radio"][name="ingTwoOp"]:checked').val();
-        saveIngredients(ingOne, ingTwo);
+        if (ingOne !== ingTwo) {
+            saveIngredients(ingOne, ingTwo);
 
-        setTimeout(() => { $('#settings').removeClass('show'); }, 3000);
+            setTimeout(() => { $('#settings').removeClass('show'); }, 3000);
 
-        $('.toast').toast('show');
+            $('.toast').toast('show');
+            location.reload();
+        } else {
+            let err = 'Same Ingredient Selected';
+            let message = 'Same ingredient selected, you need to choose two different types';
+            showModal(err, message);
+        }
 
     });
     // Show settings

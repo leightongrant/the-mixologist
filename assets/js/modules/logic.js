@@ -243,4 +243,4 @@ const main = (search) => {
 
 
 
-export { getRandomCocktails, main, getRecommendations, saveIngredients };
+export { getRandomCocktails, main, getRecommendations, saveIngredients, showModal };
