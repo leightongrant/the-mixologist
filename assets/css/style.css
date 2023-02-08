@@ -108,3 +108,9 @@ svg {
 footer .border-top {
     border-color: #6c757d !important;
 }
+
+
+/* Setting  */
+#settings-button:hover {
+    cursor: pointer;
+}
