@@ -1,17 +1,12 @@
-import { getCocktail, getCocktailDescription, getRandomCocktails } from "./modules/logic.js";
+import { getCocktail, getCocktailDescription, getRandomCocktails, main } from "./modules/logic.js";
 
 
 $(function () {
-
+    //TODO: Change default behavior of wether to show or hide maps on page load
     // Hide location info
     $('.location').addClass('hide');
 
-    // Main function 
-    const main = (search) => {
-        getCocktail(search);
-        getCocktailDescription(search);
 
-    };
 
     let randomCocktail = 'bloody mary';
     main(randomCocktail);
