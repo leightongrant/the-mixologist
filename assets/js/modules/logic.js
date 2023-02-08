@@ -29,7 +29,7 @@ const getCocktail = (search) => {
             cocktailData.instructions = responseData.strInstructions;
             cocktailData.image = responseData.strDrinkThumb;
 
-            // Loop through response to get list of ingredients            
+            // Loop through response to get list of ingredients & measures            
             for (let i = 1; i < 16; i++) {
                 if (responseData[`strMeasure${i}`] === null || responseData[`strIngredient${i}`] === null) {
                     continue;
