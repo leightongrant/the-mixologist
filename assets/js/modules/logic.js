@@ -178,7 +178,7 @@ const getCocktailIngredients = (search, slideNum, recs) => {
                     cocktailData.ingredients.push(responseData[`strIngredient${i}`]);
                 }
             }
-
+            //TODO: If no cocktails found based on two favorites, feedback info or recommend some with either
             let favorites = JSON.parse(localStorage.getItem('favorites'));
             if (cocktailData.ingredients.includes(favorites.ingOne) && cocktailData.ingredients.includes(favorites.ingTwo)) {
                 recs.push(cocktailData);
