@@ -113,25 +113,25 @@ const getRandomCocktails = () => {
 const getCocktailDescription = (search) => {
     const apiURL = `https://en.wikipedia.org/w/api.php?action=query&origin=*&list=search&utf8=&format=json&srsearch=${search} cocktail`;
     fetch(apiURL)
-      .then((response) => {
-        if (response.status >= 200 && response.status <= 299) {
-          return response.json();
-        } else {
-          throw Error(response.statusText);
-        }
-      })
-      .then(data => {
-        let snippet = data.query.search[0].snippet;
-        if (snippet.toLowerCase().includes("cocktail")) {
-          $('.cocktail-description').html(snippet);
-        } else {
-          $('.cocktail-description').html(" A cocktail is an alcoholic drink consisting of a spirit or spirits mixed with other ingredients, such as fruit juice or cream.");
-        }
-      })
-      .catch(err => err);
-  };
+        .then((response) => {
+            if (response.status >= 200 && response.status <= 299) {
+                return response.json();
+            } else {
+                throw Error(response.statusText);
+            }
+        })
+        .then(data => {
+            let snippet = data.query.search[0].snippet;
+            if (snippet.toLowerCase().includes("cocktail")) {
+                $('.cocktail-description').html(snippet);
+            } else {
+                $('.cocktail-description').html(" A cocktail is an alcoholic/non-alcoholic drink consisting of a spirit or spirits mixed with other ingredients, such as fruit juice or cream.");
+            }
+        })
+        .catch(err => err);
+};
 
-// TODO: Write function to recommend cocktails based on user preferences
+// Function to recommend cocktails based on user preferences
 const getRecommendations = () => {
 
     // Check Local Storage
@@ -190,19 +190,11 @@ const getCocktailIngredients = (search, slideNum, recs) => {
                 <img src="${cocktailData.image}" class="d-block w-100"
                     alt="...">
                 <div class="carousel-caption">
-                    <h3>${cocktailData.name}</h3>
-                    <a href="#">We had such a great time in LA!</a>
+                    <h3 class="text-light">${cocktailData.name}</h3>
+                    <span class="recommend-view"><u value="${cocktailData.name}">View Ingredients</u></span>
                 </div>
             </div>`;
-                // $('.carousel-indicators').append(indicators);
                 $('.carousel-inner').append(carouselSlides);
-
-
-                //console.log(recs.length - 1);
-                //console.log(cocktailData);
-                //console.log(slideNum);
-            } else if (cocktailData.ingredients.includes(favorites.ingOne) || cocktailData.ingredients.includes(favorites.ingTwo)) {
-                //console.log('others');
             }
 
         })

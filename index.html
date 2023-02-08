@@ -49,7 +49,8 @@
                                     </div>
 
                                     <div id="cocktail-options" class="p-4">
-                                        <h2 class="text-light text-center mb-1">Or choose one from our list</h2>
+                                        <h2 class="text-light text-center mb-3 fs-6">Or choose one from our
+                                            list.<br>Click settings for more options</h2>
                                         <select id="base-ingredient" class="rounded">
                                             <option value="" disabled selected>Select Base Ingredient</option>
                                         </select>
@@ -96,9 +97,22 @@
                                                 </div>
 
                                             </fieldset>
+                                            <!-- Toast -->
+                                            <div class="toast align-items-center mt-3" role="alert"
+                                                aria-live="assertive" aria-atomic="true"
+                                                style="position: relative; left: 25%">
+                                                <div class="d-flex">
+                                                    <div class="toast-body">
+                                                        Favorites saved.
+                                                    </div>
+                                                    <button type="button" class="btn-close me-2 m-auto"
+                                                        data-bs-dismiss="toast" aria-label="Close"></button>
+                                                </div>
+                                            </div>
 
-                                            <button type="submit" class="btn btn-primary mt-4"><i
-                                                    class="fa-regular fa-floppy-disk"></i> Save</button>
+
+                                            <button type="submit" class="btn btn-primary mt-4" id="save-button"><i
+                                                    class="fa-regular fa-floppy-disk"></i> Save Favorites</button>
                                         </form>
                                     </div>
                                     <div id="settings-button"><i class="fa-solid fa-gear"></i> Settings</div>
@@ -119,7 +133,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="main col-md-9 py-5">
+                <div class="main col-lg-9 py-5">
 
 
                     <section id="description" class="">
@@ -175,43 +189,21 @@
                                             Me</button>
                                     </div>
 
-                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section id="recommendations" class="bg bg-light">
+                    <section id="recommendations" class="border border-1 bg bg-light hide mt-4 rounded">
 
                         <div class="container">
                             <div class="row w-50 py-4 m-auto">
-                                <h2 class="text-center text-dark">Cocktails you may like</h2>
+                                <h2 class="text-center text-dark fs-4 mb-4">Cocktails you may like</h2>
                                 <!-- Carousel -->
                                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                                     <div class="carousel-inner">
-                                        <!-- <div class="carousel-item active">
-                                            <img src="./assets/images/placeholders/bar-img.jpg" class="d-block w-100"
-                                                alt="...">
-                                            <div class="carousel-caption">
-                                                <h3>Los Angeles</h3>
-                                                <p>We had such a great time in LA!</p>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="./assets/images/placeholders/bar1-img.jpg" class="d-block w-100"
-                                                alt="...">
-                                            <div class="carousel-caption">
-                                                <h3>Los Angeles</h3>
-                                                <p>We had such a great time in LA!</p>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="./assets/images/placeholders/bar3-img.jpg" class="d-block w-100"
-                                                alt="...">
-                                            <div class="carousel-caption">
-                                                <h3>Los Angeles</h3>
-                                                <p>We had such a great time in LA!</p>
-                                            </div>
-                                        </div> -->
+                                        <!-- Carousel -->
+
                                     </div>
                                     <button class="carousel-control-prev" type="button"
                                         data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -234,10 +226,11 @@
                         <section id="local-places" class="py-5">
                             <h2 class="section-title text-center mb-1">Top Rated <span class="find-place"
                                     style="text-transform: capitalize"></span> Near Me</h2>
-                            <p class="text-center mb-5">Four of the top rated <span class="find-place"></span> close to you. See pins on
+                            <p class="text-center mb-5">Four of the top rated <span class="find-place"></span> close to
+                                you. See pins on
                                 map for
                                 more.</p>
-                
+
                             <div class="container">
                                 <div class="row row-cols-sm-2 row-cols-md-4 g-3 g-md-3 p-2" id="data-cards">
                                     <!-- Local Places -->
@@ -248,11 +241,11 @@
                             <div class="">
                                 <div class="row">
                                     <div class="col">
-                
+
                                         <div class="map" id="map" style="height: 400px;">
                                             <!-- Google Maps -->
                                         </div>
-                
+
                                     </div>
                                 </div>
                             </div>
@@ -260,7 +253,7 @@
                     </section>
 
                 </div>
-                <aside class="aside col-md-3 py-5">
+                <aside class="aside col-lg-3 py-5">
                     <div class="container">
                         <div class="row">
                             <h4 class="aside-title">Popular Cocktails</h4>
@@ -351,6 +344,8 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnFQPvl6Qv4DiRa2W2Voz0RJP1YqnX0eg&libraries=places&callback=Function.prototype&v=weekly"
         defer></script>
+
+
 
     <!-- Modal -->
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">

@@ -113,4 +113,15 @@ footer .border-top {
 /* Setting  */
 #settings-button:hover {
     cursor: pointer;
+    color: #ffbb33
+}
+
+#save-button:hover {
+    color: #ffbb33
+}
+
+/* Recommended */
+.recommended-view:hover {
+    color: #ffbb33;
+    cursor: pointer
 }
