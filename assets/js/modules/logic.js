@@ -134,11 +134,112 @@ const getCocktailDescription = (search) => {
 // TODO: Write function to recommend cocktails based on user preferences
 const getRecommendations = () => {
 
+    // Check Local Storage
+    let favorites = JSON.parse(localStorage.getItem('favorites'));
+    let ingSel = [favorites.ingOne, favorites.ingTwo][Math.floor(Math.random() * 2)];
+
+    if (favorites !== null) {
+        getCocktailByIngredient(ingSel);
+
+    }
+
+
+
+};
+
+// Function get ingredients and check user favorites
+const getCocktailIngredients = (search, slideNum, recs) => {
+    const apiURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`;
+    fetch(apiURL)
+        .then((response) => {
+            if (response.status >= 200 && response.status <= 299) {
+                return response.json();
+            } else {
+                throw Error(response.statusText);
+            }
+        })
+        .then(data => {
+            const responseData = data.drinks[0];
+            // To store cocktail data
+            const cocktailData = {
+                ingredients: [],
+                image: '',
+                name: '',
+            };
+
+            cocktailData.image = responseData.strDrinkThumb;
+            cocktailData.name = responseData.strDrink;
+
+            // Loop through response to get list of ingredients            
+            for (let i = 1; i < 16; i++) {
+                if (responseData[`strIngredient${i}`] === null) {
+                    continue;
+                } else {
+                    cocktailData.ingredients.push(responseData[`strIngredient${i}`]);
+                }
+            }
+
+            let favorites = JSON.parse(localStorage.getItem('favorites'));
+            if (cocktailData.ingredients.includes(favorites.ingOne) && cocktailData.ingredients.includes(favorites.ingTwo)) {
+                recs.push(cocktailData);
+                let active = 'active';
+                recs.length - 1 === 0 ? active = 'active' : active = '';
+
+                // let indicators = `<button type="button" data-bs-target="#demo" data-bs-slide-to="${recs.length - 1}" class="${active}"></button>`;
+                let carouselSlides = `<div class="carousel-item ${active}">
+                <img src="${cocktailData.image}" class="d-block w-100"
+                    alt="...">
+                <div class="carousel-caption">
+                    <h3>${cocktailData.name}</h3>
+                    <a href="#">We had such a great time in LA!</a>
+                </div>
+            </div>`;
+                // $('.carousel-indicators').append(indicators);
+                $('.carousel-inner').append(carouselSlides);
+
+
+                //console.log(recs.length - 1);
+                //console.log(cocktailData);
+                //console.log(slideNum);
+            } else if (cocktailData.ingredients.includes(favorites.ingOne) || cocktailData.ingredients.includes(favorites.ingTwo)) {
+                //console.log('others');
+            }
+
+        })
+        .catch(err => {
+            const errMsg = 'Cocktail Not Found';
+            const mainMessage = 'The Cocktail you are looking for is not found. Please check your spelling and try again.';
+            showModal(errMsg, mainMessage);
+        });
+
 };
 
 
 
+// Get a cocktail by ingredient
+const getCocktailByIngredient = (ing) => {
+    $.getJSON(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ing}`, function (data) {
+        let slideNum = 0;
+        let recs = [];
+        data.drinks.forEach((drink) => {
+            getCocktailIngredients(drink.strDrink, slideNum, recs);
+            slideNum++;
+        });
 
+
+    });
+};
+
+
+
+// Function to save favorites
+const saveIngredients = (ingOne, ingTwo) => {
+    localStorage.setItem('favorites', JSON.stringify({
+        ingOne: ingOne,
+        ingTwo: ingTwo
+    }));
+
+};
 
 
 // Main function 
@@ -150,4 +251,4 @@ const main = (search) => {
 
 
 
-export { getRandomCocktails, getCocktailDescription, getCocktail, main };
+export { getRandomCocktails, main, getRecommendations, saveIngredients };
