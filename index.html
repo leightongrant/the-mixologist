@@ -17,7 +17,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico">
 
 </head>
 
@@ -43,14 +43,18 @@
                                         <i class="fa fa-search"></i>
                                         <input type="text" class="form-control cocktail-search-frm"
                                             placeholder="Search for a cocktail">
-                                        <select id="base-ingredient">
-                                            <option value="" disabled selected>Select Base Ingredient</option>
-                                        </select>
-                                        <select id="cocktails">
-                                            <option value="" disabled selected>Select Cocktail</option>
-                                        </select>
+
                                         <button class="btn btn-primary cocktail-search-btn"
                                             type="submit">Search</button>
+                                    </div>
+                                    <div id="cocktail-options" class="p-4">
+                                        <h2 class="text-light text-center mb-1">Or choose one from our list</h2>
+                                        <select id="base-ingredient" class="rounded">
+                                            <option value="" disabled selected>Select Base Ingredient</option>
+                                        </select>
+                                        <select id="cocktails" class="rounded">
+                                            <option value="" disabled selected>Select Cocktail</option>
+                                        </select>
                                     </div>
 
                                 </div>

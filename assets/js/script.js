@@ -2,7 +2,7 @@ import { getCocktail, getCocktailDescription, getRandomCocktails, main } from ".
 
 
 $(function () {
-
+    //TODO: Change default behavior of wether to show or hide maps on page load
     // Hide location info
     $('.location').addClass('hide');
 

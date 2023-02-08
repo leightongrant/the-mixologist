@@ -129,12 +129,8 @@ const getCocktailDescription = (search) => {
 
 };
 
-
-
-// Main function 
-const main = (search) => {
-    getCocktail(search);
-    getCocktailDescription(search);
+// TODO: Write function to recommend cocktails based on user preferences
+const getRecommendations = () => {
 
 };
 
@@ -143,6 +139,12 @@ const main = (search) => {
 
 
 
+// Main function 
+const main = (search) => {
+    getCocktail(search);
+    getCocktailDescription(search);
+
+};
 
 
 
