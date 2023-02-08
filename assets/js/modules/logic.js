@@ -113,21 +113,23 @@ const getRandomCocktails = () => {
 const getCocktailDescription = (search) => {
     const apiURL = `https://en.wikipedia.org/w/api.php?action=query&origin=*&list=search&utf8=&format=json&srsearch=${search} cocktail`;
     fetch(apiURL)
-        .then((response) => {
-            if (response.status >= 200 && response.status <= 299) {
-                return response.json();
-            } else {
-                throw Error(response.statusText);
-            }
-        })
-        .then(data => {
-            $('.cocktail-description').html(data.query.search[0].snippet);
-
-        })
-        .catch(err => err);
-
-
-};
+      .then((response) => {
+        if (response.status >= 200 && response.status <= 299) {
+          return response.json();
+        } else {
+          throw Error(response.statusText);
+        }
+      })
+      .then(data => {
+        let snippet = data.query.search[0].snippet;
+        if (snippet.toLowerCase().includes("cocktail")) {
+          $('.cocktail-description').html(snippet);
+        } else {
+          $('.cocktail-description').html(" A cocktail is an alcoholic drink consisting of a spirit or spirits mixed with other ingredients, such as fruit juice or cream.");
+        }
+      })
+      .catch(err => err);
+  };
 
 // TODO: Write function to recommend cocktails based on user preferences
 const getRecommendations = () => {
