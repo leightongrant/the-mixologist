@@ -148,7 +148,7 @@ const getRecommendations = () => {
 };
 
 // Function get ingredients and check user favorites
-const getCocktailIngredients = (search, slideNum, recs) => {
+const getCocktailIngredients = (search, recs) => {
     const apiURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`;
     fetch(apiURL)
         .then((response) => {
@@ -185,23 +185,40 @@ const getCocktailIngredients = (search, slideNum, recs) => {
                 let active = 'active';
                 recs.length - 1 === 0 ? active = 'active' : active = '';
 
-                // let indicators = `<button type="button" data-bs-target="#demo" data-bs-slide-to="${recs.length - 1}" class="${active}"></button>`;
+
                 let carouselSlides = `<div class="carousel-item ${active}">
                 <img src="${cocktailData.image}" class="d-block w-100"
-                    alt="${cocktailData.name}" style="height: 50vh; object-fit: cover">
+                    alt="${cocktailData.name}" style="height: 70vh; object-fit: cover">
                 <div class="carousel-caption">
                     <h3 class="text-light">${cocktailData.name}</h3>
-                    <span class="recommend-view"><u value="${cocktailData.name}">View Ingredients</u></span>
+                    <span class="recommend-view"><u value="${cocktailData.name}">View Recipe</u></span>
                 </div>
             </div>`;
                 $('.carousel-inner').append(carouselSlides);
+            } else if (cocktailData.ingredients.includes(favorites.ingOne) || cocktailData.ingredients.includes(favorites.ingTwo)) {
+                recs.push(cocktailData);
+                let active = 'active';
+                recs.length - 1 === 0 ? active = 'active' : active = '';
+
+
+                let carouselSlides = `<div class="carousel-item ${active}">
+                <img src="${cocktailData.image}" class="d-block w-100"
+                    alt="${cocktailData.name}" style="height: 70vh; object-fit: cover">
+                <div class="carousel-caption">
+                    <h3 class="text-light">${cocktailData.name}</h3>
+                    <span class="recommend-view"><u value="${cocktailData.name}">View Recipe</u></span>
+                </div>
+            </div>`;
+                $('.carousel-inner').append(carouselSlides);
+
             }
 
         })
         .catch(err => {
-            const errMsg = 'Cocktail Not Found';
-            const mainMessage = 'The Cocktail you are looking for is not found. Please check your spelling and try again.';
-            showModal(errMsg, mainMessage);
+            err;
+            // const errMsg = 'Cocktail Not Found';
+            // const mainMessage = 'The Cocktail you are looking for is not found. Please check your spelling and try again.';
+            // showModal(errMsg, mainMessage);
         });
 
 };
@@ -211,11 +228,9 @@ const getCocktailIngredients = (search, slideNum, recs) => {
 // Get a cocktail by ingredient
 const getCocktailByIngredient = (ing) => {
     $.getJSON(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ing}`, function (data) {
-        let slideNum = 0;
         let recs = [];
         data.drinks.forEach((drink) => {
-            getCocktailIngredients(drink.strDrink, slideNum, recs);
-            slideNum++;
+            getCocktailIngredients(drink.strDrink, recs);
         });
 
 
