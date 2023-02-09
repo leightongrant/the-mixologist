@@ -116,6 +116,6 @@ GitHub Page Link
 https://misterouija.github.io/the-mixologist/
 
 ## Screenshots
-<video width="1920" height="968" controls>
-  <source src="./assets/images/The-Mixologists.mp4" type="video/mp4">
-</video>
+https://user-images.githubusercontent.com/57220285/217784938-92936ad2-d379-4aee-8bec-2f79c3a2ea3f.mp4
+
+
