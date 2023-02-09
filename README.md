@@ -7,7 +7,7 @@ This web application uses the thecocktaildb api to search and present details on
 
 You can search for a specific cocktail if you know the name or use the search by ingredient option to search by a base liquor. On the left is a presentation of the most popular cocktails which is updated every time you visit the site.
 
-***** something around the recommendations ****
+You can get recommendation on what cocktails you may like from a number of ingredients; you can save you selection and it will be remembered next time you return to the site, see the instruction below.
 
 There is some error checking from the data returned, to see if the cocktail exists or if the user didn’t enter any search criteria, if not a modal dialog is displayed with information on how to correct the error.
 
@@ -83,6 +83,18 @@ There is some error checking from the data returned, to see if the cocktail exis
     - Opening times for the week
     - Telephone Number
     - Website Link
+
+## Cocktails you may like
+
+- Click the settings link in the navigation bar under the 'Select Base Ingredient' drop down.
+
+- using the radio buttons, select an ingredient from each option box.
+
+- Click Save Favourites button, this will save them to local storage
+
+- Click Close button.
+
+- The Cocktails you may like carousel will display cocktail options based on your selection.
 
 ## Popular Cocktails
 
