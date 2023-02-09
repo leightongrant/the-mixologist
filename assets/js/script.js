@@ -18,7 +18,12 @@ $(function () {
   $(".cocktail-search-btn").on("click", () => {
     let userSearch = $(".cocktail-search-frm").val();
 
-    main(userSearch);
+    main(userSearch.trim());
+  });
+
+  // Handles search if enter key pressed
+  $(".cocktail-search-frm").on('keydown', (e) => {
+    e.keyCode === 13 && main($(e.target).val().trim());
   });
 
   // Get location Event Handlers
