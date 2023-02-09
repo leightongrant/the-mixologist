@@ -142,9 +142,6 @@ const getRecommendations = () => {
         getCocktailByIngredient(ingSel);
 
     }
-
-
-
 };
 
 // Function get ingredients and check user favorites
@@ -207,7 +204,6 @@ const getCocktailIngredients = (search, slideNum, recs) => {
 };
 
 
-
 // Get a cocktail by ingredient
 const getCocktailByIngredient = (ing) => {
     $.getJSON(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ing}`, function (data) {
@@ -217,12 +213,8 @@ const getCocktailByIngredient = (ing) => {
             getCocktailIngredients(drink.strDrink, slideNum, recs);
             slideNum++;
         });
-
-
     });
 };
-
-
 
 // Function to save favorites
 const saveIngredients = (ingOne, ingTwo) => {
@@ -230,9 +222,7 @@ const saveIngredients = (ingOne, ingTwo) => {
         ingOne: ingOne,
         ingTwo: ingTwo
     }));
-
 };
-
 
 // Main function 
 const main = (search) => {
@@ -240,7 +230,5 @@ const main = (search) => {
     getCocktailDescription(search);
 
 };
-
-
 
 export { getRandomCocktails, main, getRecommendations, saveIngredients, showModal };
