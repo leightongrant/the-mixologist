@@ -11,20 +11,28 @@ $(function () {
   // Hide location info
   $(".location").addClass("hide");
 
-  let randomCocktail = "bloody mary";
-  main(randomCocktail);
+  // Renders random cocktails sidebar
+  getRandomCocktails();
 
-  // Event handler to get data from search and call main
+  // Default search when page loads
+  const defaultCocktail = "Bloody Mary";
+  main(defaultCocktail);
+
+  // Event handler to get data from search input
   $(".cocktail-search-btn").on("click", () => {
-    let userSearch = $(".cocktail-search-frm").val();
+    let userSearch = $(".cocktail-search-frm").val().trim();
+    if (userSearch.length === 0) {
+      let err = 'No Search Entered';
+      let message = 'No search term entered, please enter a cocktail name and try again';
+      showModal(err, message);
+    } else {
+      main(userSearch);
+      $(".cocktail-search-frm").val('');
+    }
 
-    main(userSearch.trim());
   });
 
-  // Handles search if enter key pressed
-  $(".cocktail-search-frm").on('keydown', (e) => {
-    e.keyCode === 13 && main($(e.target).val().trim());
-  });
+
 
   // Get location Event Handlers
   $("#location-buttons").on("click", (e) => {
@@ -82,8 +90,7 @@ $(function () {
     $("#recommendations").addClass("show");
   }
 
-  // Renders random cocktails sidebar
-  getRandomCocktails();
+
 
   // Carousel events
   $(".carousel-inner").on("mouseenter", () => {
@@ -95,4 +102,36 @@ $(function () {
     main($(e.target)[0].attributes.value.value);
     location.assign("#description");
   });
+
+
+  // Handles search if enter key pressed
+  $(".cocktail-search-frm").on('keyup', (e) => {
+
+    if (e.keyCode === 13) {
+
+
+      if ($(e.target).val().trim().length === 0) {
+
+        let err = 'No Search Entered';
+        let message = 'No search term entered, please enter a cocktail name and try again';
+        showModal(err, message);
+
+      } else {
+        main($(e.target).val().trim());
+        $(e.target).val('');
+      }
+
+
+
+    }
+  });
+
+
+
+
+
+
 });
+
+
+
