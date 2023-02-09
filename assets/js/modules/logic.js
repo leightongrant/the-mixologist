@@ -34,7 +34,7 @@ const getCocktail = (search) => {
                 if (responseData[`strMeasure${i}`] === null || responseData[`strIngredient${i}`] === null) {
                     continue;
                 } else {
-                    cocktailData.ingredients.push(responseData[`strMeasure${i}`] + responseData[`strIngredient${i}`]);
+                    cocktailData.ingredients.push(responseData[`strMeasure${i}`] + ' - ' + responseData[`strIngredient${i}`]);
                 }
             }
 
@@ -188,7 +188,7 @@ const getCocktailIngredients = (search, slideNum, recs) => {
                 // let indicators = `<button type="button" data-bs-target="#demo" data-bs-slide-to="${recs.length - 1}" class="${active}"></button>`;
                 let carouselSlides = `<div class="carousel-item ${active}">
                 <img src="${cocktailData.image}" class="d-block w-100"
-                    alt="...">
+                    alt="${cocktailData.name}" style="height: 50vh; object-fit: cover">
                 <div class="carousel-caption">
                     <h3 class="text-light">${cocktailData.name}</h3>
                     <span class="recommend-view"><u value="${cocktailData.name}">View Ingredients</u></span>
