@@ -1,15 +1,19 @@
-// Imports
-import { main } from "./logic.js";
-
+/* function to populate the base ingredient drop down 
+then populates the select a cocktail from above selection
+updates the search cocktail input with the selection
+*/
 $(document).ready(function () {
-  const baseIngredients = ['Rum', 'Vodka', 'Gin', 'Tequila', 'Whiskey'];
-  const selectBaseIngredient = $('#base-ingredient');
-  baseIngredients.forEach(ingredient => {
-    selectBaseIngredient.append(`<option value="${ingredient}">${ingredient}</option>`);
+  const baseIngredients = ["Rum", "Vodka", "Gin", "Tequila", "Whiskey"];
+  const selectBaseIngredient = $("#base-ingredient");
+  baseIngredients.forEach((ingredient) => {
+    selectBaseIngredient.append(
+      `<option value="${ingredient}">${ingredient}</option>`
+    );
   });
 
-  selectBaseIngredient.on('change', function () {
+  selectBaseIngredient.on("change", function () {
     const selectedIngredient = this.value;
+<<<<<<< HEAD
     $.getJSON(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${selectedIngredient}`, function (data) {
       const selectCocktail = $('#cocktails');
       selectCocktail.empty();
@@ -22,11 +26,34 @@ $(document).ready(function () {
 
   $('#cocktails').on('change', function () {
     const selectedOption = $(this).find(':selected').text();
+=======
+    $.getJSON(
+      `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${selectedIngredient}`,
+      function (data) {
+        const selectCocktail = $("#cocktails");
+        selectCocktail.empty();
+        selectCocktail.html(
+          `<option value="" disabled selected>Select A Cocktail</option>`
+        );
+        data.drinks.forEach((drink) => {
+          selectCocktail.append(
+            `<option value="${drink.idDrink}">${drink.strDrink}</option>`
+          );
+        });
+      }
+    );
+  });
+
+  /* function updates cocktail description from selection */
+  $("#cocktails").on("change", function () {
+    const selectedOption = $(this).find(":selected").text();
+>>>>>>> b21c540b3f628fee00932538b3893cd9475ee1d9
     $(".cocktail-search-frm").val(selectedOption);
     main(selectedOption);
     //getCocktailDescription(selectedOption);
   });
 
+<<<<<<< HEAD
 
   // function getCocktailDescription (selectedOptionValue) {
   //   $.getJSON(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${selectedOptionValue}`, function (data) {
@@ -46,5 +73,31 @@ $(document).ready(function () {
   //   });
   // }
 
-});
+=======
+  /*  function to return the cocktail details */
+  function getCocktailDescription(selectedOptionValue) {
+    $.getJSON(
+      `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${selectedOptionValue}`,
+      function (data) {
+        const cocktail = data.drinks[0];
+        const ingredients = [];
+        for (let i = 1; i <= 15; i++) {
+          if (cocktail[`strIngredient${i}`]) {
+            ingredients.push(
+              `${cocktail[`strMeasure${i}`]} ${cocktail[`strIngredient${i}`]}`
+            );
+          }
+        }
+        const instructions = cocktail.strInstructions;
+        $(".ingredients").html(
+          ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")
+        );
+        $(".instructions").text(instructions);
 
+        $(".cocktail-search-frm").val(selectedOptionValue);
+        $(".cocktail-search-btn").submit();
+      }
+    );
+  }
+>>>>>>> b21c540b3f628fee00932538b3893cd9475ee1d9
+});

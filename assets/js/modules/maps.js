@@ -156,7 +156,6 @@ function createMarker(place) {
     }
 
     /* Add website url as anchor to Info Window */
-
     if (place.website) {
       const placeWebsiteElement = document.createElement("a");
       placeWebsiteElement.setAttribute("href", place.website);
@@ -182,4 +181,4 @@ function getPlaceDetails(request) {
 }
 
 /* Export functions */
-export { initMap}
+export { initMap };
