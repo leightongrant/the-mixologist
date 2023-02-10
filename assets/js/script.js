@@ -134,7 +134,9 @@ $(function () {
 
         let name = $('.cocktail-title').text();
         let image = $('.cocktail-image')[0].currentSrc;
-        saveFavoriteCocktail(name, image);
+        let type = $('.cocktail-type').text();
+
+        saveFavoriteCocktail(name, image, type);
     });
 
     // Show favorite cocktails

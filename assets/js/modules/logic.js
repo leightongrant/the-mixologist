@@ -76,30 +76,6 @@ const showFavoritesModal = () => {
     let favorites = JSON.parse(localStorage.getItem('favoriteCocktails'));
     $('#favorites-modal-body').empty();
 
-
-    // for (let i = 0; i < favorites.length; i++) {
-
-    //     let favoriteItems = '';
-    //     favoriteItems += `<div class="card mb-3" style="max-width: 540px;">
-    //     <div class="row g-0">
-    //         <div class="col-md-4">
-    //             <img src="${JSON.parse(favorites[i]).image}"
-    //                 alt="Trendy Pants and Shoes" class="img-fluid rounded-start" style="height: auto;object-fit: cover;"/>
-    //         </div>
-    //         <div class="col-md-8">
-    //             <div class="card-body">
-    //                 <h5 class="card-title">${favorites[i].name}</h5>
-
-    //                 <button type="button" class="btn btn-secondary btn-sm" value="${favorites[i].name}">View Ingredients</button>
-    //             </div>
-    //         </div>
-    //     </div>
-    // </div>`;
-
-    //     $('#favorites-modal-body').append(favoriteItems);
-
-
-    // }
     favorites.forEach((favorite) => {
 
         let favoriteItems = '';
@@ -112,8 +88,9 @@ const showFavoritesModal = () => {
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">${JSON.parse(favorite).name}</h5>
-
-                    <button type="button" class="btn btn-secondary btn-sm" value="${JSON.parse(favorite).name}">View Ingredients</button>
+                    <p class="card-text badge rounded-pill bg-info text-dark">${JSON.parse(favorite).type}</p><br><br>
+                    <button type="button" class="btn btn-secondary btn-sm" value="" id="remove-item">Remove Item</button>
+                    <button type="button" class="btn btn-secondary btn-sm" value="${JSON.parse(favorite).name}" id="view-item">View Ingredients</button>
                 </div>
             </div>
         </div>
@@ -300,11 +277,12 @@ const saveIngredients = (ingOne, ingTwo) => {
 };
 
 // Function to save favorite cocktail
-const saveFavoriteCocktail = (name, image) => {
+const saveFavoriteCocktail = (name, image, type) => {
 
     let items = {
         name: name,
-        image: image
+        image: image,
+        type: type
     };
 
     let itemsArr = JSON.parse(localStorage.getItem('favoriteCocktails'));
