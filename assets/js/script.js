@@ -146,7 +146,7 @@ $(function () {
         }
     });
 
-
+    // Loads to cocktail details
     $('#favorites-modal-body').on('click', 'button', (e) => {
         main($(e.target).val());
         $('#favoritesModal').modal('hide');

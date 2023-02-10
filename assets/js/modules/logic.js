@@ -75,46 +75,22 @@ const showModal = (errMsg, mainMessage) => {
 const showFavoritesModal = () => {
     let favorites = JSON.parse(localStorage.getItem('favoriteCocktails'));
     $('#favorites-modal-body').empty();
-    for (let i = 0; i < favorites.length; i++) {
-        if (Object.keys(favorites[i]).includes(favorites[i].name)) {
-            continue;
-        } else {
 
-            let favoriteItems = '';
-            favoriteItems += `<div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="${favorites[i].image}"
-                    alt="Trendy Pants and Shoes" class="img-fluid rounded-start" style="height: auto;object-fit: cover;"/>
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">${favorites[i].name}</h5>
-                    
-                    <button type="button" class="btn btn-secondary btn-sm" value="${favorites[i].name}">View Ingredients</button>
-                </div>
-            </div>
-        </div>
-    </div>`;
 
-            $('#favorites-modal-body').append(favoriteItems);
-        }
-
-    }
-    // favorites.forEach((favorite) => {
+    // for (let i = 0; i < favorites.length; i++) {
 
     //     let favoriteItems = '';
     //     favoriteItems += `<div class="card mb-3" style="max-width: 540px;">
     //     <div class="row g-0">
     //         <div class="col-md-4">
-    //             <img src="${favorite.image}"
+    //             <img src="${JSON.parse(favorites[i]).image}"
     //                 alt="Trendy Pants and Shoes" class="img-fluid rounded-start" style="height: auto;object-fit: cover;"/>
     //         </div>
     //         <div class="col-md-8">
     //             <div class="card-body">
-    //                 <h5 class="card-title">${favorite.name}</h5>
+    //                 <h5 class="card-title">${favorites[i].name}</h5>
 
-    //                 <button type="button" class="btn btn-secondary btn-sm" value="${favorite.name}">View Ingredients</button>
+    //                 <button type="button" class="btn btn-secondary btn-sm" value="${favorites[i].name}">View Ingredients</button>
     //             </div>
     //         </div>
     //     </div>
@@ -123,7 +99,30 @@ const showFavoritesModal = () => {
     //     $('#favorites-modal-body').append(favoriteItems);
 
 
-    // });
+    // }
+    favorites.forEach((favorite) => {
+
+        let favoriteItems = '';
+        favoriteItems += `<div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="${JSON.parse(favorite).image}"
+                    alt="Trendy Pants and Shoes" class="img-fluid rounded-start" style="height: auto;object-fit: cover;"/>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">${JSON.parse(favorite).name}</h5>
+
+                    <button type="button" class="btn btn-secondary btn-sm" value="${JSON.parse(favorite).name}">View Ingredients</button>
+                </div>
+            </div>
+        </div>
+    </div>`;
+
+        $('#favorites-modal-body').append(favoriteItems);
+
+
+    });
 
 
 
@@ -312,19 +311,14 @@ const saveFavoriteCocktail = (name, image) => {
 
     if (itemsArr === null) {
         itemsArr = [];
-        itemsArr.push(items);
+        itemsArr.push(JSON.stringify(items));
+    } else if (itemsArr.includes(JSON.stringify(items))) {
+        showModal('Already Added', 'Item already in your favorites');
     } else {
-        itemsArr.push(items);
-
-        // itemsArr.forEach((i) => {
-        //     itemsArr.push(items);                         
-        // });     
-
-
-    };
+        itemsArr.push(JSON.stringify(items));
+    }
 
     localStorage.setItem('favoriteCocktails', JSON.stringify(itemsArr));
-
 };
 
 // Main function 
@@ -333,5 +327,6 @@ const main = (search) => {
     getCocktailDescription(search);
 
 };
+
 
 export { getRandomCocktails, main, getRecommendations, saveIngredients, showModal, saveFavoriteCocktail, showFavoritesModal };
