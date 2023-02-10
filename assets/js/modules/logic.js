@@ -75,31 +75,55 @@ const showModal = (errMsg, mainMessage) => {
 const showFavoritesModal = () => {
     let favorites = JSON.parse(localStorage.getItem('favoriteCocktails'));
     $('#favorites-modal-body').empty();
-    favorites.forEach((favorite) => {
+    for (let i = 0; i < favorites.length; i++) {
+        if (Object.keys(favorites[i]).includes(favorites[i].name)) {
+            continue;
+        } else {
 
-        let favoriteItems = '';
-        favoriteItems += `<div class="card mb-3" style="max-width: 540px;">
+            let favoriteItems = '';
+            favoriteItems += `<div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-4">
-                <img src="${favorite.image}"
+                <img src="${favorites[i].image}"
                     alt="Trendy Pants and Shoes" class="img-fluid rounded-start" style="height: auto;object-fit: cover;"/>
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">${favorite.name}</h5>
-                    <p class="card-text">
-                        This is a wider 
-                    </p>
-                    <button type="button" class="btn btn-secondary btn-sm">View Ingredients</button>
+                    <h5 class="card-title">${favorites[i].name}</h5>
+                    
+                    <button type="button" class="btn btn-secondary btn-sm" value="${favorites[i].name}">View Ingredients</button>
                 </div>
             </div>
         </div>
     </div>`;
 
-        $('#favorites-modal-body').append(favoriteItems);
+            $('#favorites-modal-body').append(favoriteItems);
+        }
+
+    }
+    // favorites.forEach((favorite) => {
+
+    //     let favoriteItems = '';
+    //     favoriteItems += `<div class="card mb-3" style="max-width: 540px;">
+    //     <div class="row g-0">
+    //         <div class="col-md-4">
+    //             <img src="${favorite.image}"
+    //                 alt="Trendy Pants and Shoes" class="img-fluid rounded-start" style="height: auto;object-fit: cover;"/>
+    //         </div>
+    //         <div class="col-md-8">
+    //             <div class="card-body">
+    //                 <h5 class="card-title">${favorite.name}</h5>
+
+    //                 <button type="button" class="btn btn-secondary btn-sm" value="${favorite.name}">View Ingredients</button>
+    //             </div>
+    //         </div>
+    //     </div>
+    // </div>`;
+
+    //     $('#favorites-modal-body').append(favoriteItems);
 
 
-    });
+    // });
 
 
 
@@ -278,6 +302,7 @@ const saveIngredients = (ingOne, ingTwo) => {
 
 // Function to save favorite cocktail
 const saveFavoriteCocktail = (name, image) => {
+
     let items = {
         name: name,
         image: image
@@ -289,18 +314,17 @@ const saveFavoriteCocktail = (name, image) => {
         itemsArr = [];
         itemsArr.push(items);
     } else {
-        itemsArr.forEach((i) => {
-            if (name === i.name) {
-                let err = 'Item already added';
-                let message = 'This cocktail has already been added to your favorites';
-                showModal(err, message);
-            } else {
-                itemsArr.push(items);
-            }
-        });
+        itemsArr.push(items);
+
+        // itemsArr.forEach((i) => {
+        //     itemsArr.push(items);                         
+        // });     
+
+
     };
 
     localStorage.setItem('favoriteCocktails', JSON.stringify(itemsArr));
+
 };
 
 // Main function 

@@ -127,3 +127,8 @@ footer .border-top {
     color: #ffbb33;
     cursor: pointer
 }
+
+#addFave:hover {
+    color: green;
+    cursor: pointer;
+}

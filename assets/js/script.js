@@ -131,6 +131,7 @@ $(function () {
     // Add to favorite cocktails
 
     $('#addFave').on('click', () => {
+
         let name = $('.cocktail-title').text();
         let image = $('.cocktail-image')[0].currentSrc;
         saveFavoriteCocktail(name, image);
@@ -143,6 +144,13 @@ $(function () {
         } else {
             showModal('Nothing here', 'Nothing yet added');
         }
+    });
+
+
+    $('#favorites-modal-body').on('click', 'button', (e) => {
+        main($(e.target).val());
+        $('#favoritesModal').modal('hide');
+        location.assign('#description');
     });
 
 
