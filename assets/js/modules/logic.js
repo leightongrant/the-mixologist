@@ -65,11 +65,48 @@ const getCocktail = (search) => {
 
 };
 
-// This function displays a modal
+// This function displays a error modal
 const showModal = (errMsg, mainMessage) => {
     $('#modal-title').text(errMsg);
     $('#modal-body').text(mainMessage);
     $('#errorModal').modal("show");
+};
+
+const showFavoritesModal = () => {
+    let favorites = JSON.parse(localStorage.getItem('favoriteCocktails'));
+    $('#favorites-modal-body').empty();
+    favorites.forEach((favorite) => {
+
+        let favoriteItems = '';
+        favoriteItems += `<div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="${favorite.image}"
+                    alt="Trendy Pants and Shoes" class="img-fluid rounded-start" style="height: auto;object-fit: cover;"/>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">${favorite.name}</h5>
+                    <p class="card-text">
+                        This is a wider 
+                    </p>
+                    <button type="button" class="btn btn-secondary btn-sm">View Ingredients</button>
+                </div>
+            </div>
+        </div>
+    </div>`;
+
+        $('#favorites-modal-body').append(favoriteItems);
+
+
+    });
+
+
+
+
+
+    $('#favoritesModal').modal('show');
+
 };
 
 // This function get a list of random cocktails
@@ -231,12 +268,39 @@ const getCocktailByIngredient = (ing) => {
     });
 };
 
-// Function to save favorites
+// Function to save favorite ingredient
 const saveIngredients = (ingOne, ingTwo) => {
     localStorage.setItem('favorites', JSON.stringify({
         ingOne: ingOne,
         ingTwo: ingTwo
     }));
+};
+
+// Function to save favorite cocktail
+const saveFavoriteCocktail = (name, image) => {
+    let items = {
+        name: name,
+        image: image
+    };
+
+    let itemsArr = JSON.parse(localStorage.getItem('favoriteCocktails'));
+
+    if (itemsArr === null) {
+        itemsArr = [];
+        itemsArr.push(items);
+    } else {
+        itemsArr.forEach((i) => {
+            if (name === i.name) {
+                let err = 'Item already added';
+                let message = 'This cocktail has already been added to your favorites';
+                showModal(err, message);
+            } else {
+                itemsArr.push(items);
+            }
+        });
+    };
+
+    localStorage.setItem('favoriteCocktails', JSON.stringify(itemsArr));
 };
 
 // Main function 
@@ -246,4 +310,4 @@ const main = (search) => {
 
 };
 
-export { getRandomCocktails, main, getRecommendations, saveIngredients, showModal };
+export { getRandomCocktails, main, getRecommendations, saveIngredients, showModal, saveFavoriteCocktail, showFavoritesModal };

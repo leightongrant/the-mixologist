@@ -142,7 +142,13 @@
                                                     class="fa-regular fa-circle-xmark"></i> Close</button>
                                         </form>
                                     </div>
-                                    <div id="settings-button"><i class="fa-solid fa-gear"></i> Settings</div>
+                                    <div class="d-flex gap-4 justify-content-center">
+                                        <span id="settings-button"><i class="fa-solid fa-gear"></i>
+                                            Settings</span>
+                                        <span id="favoriteCocktils-button"><i class="fa-solid fa-heart"></i>
+                                            View
+                                            Favorite Cocktails</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +169,7 @@
                 <div class="main col-lg-9 py-5">
 
 
-                    <section id="description" class="">
+                    <section id="description" class="mb-5">
                         <div class="container">
                             <div class="">
                                 <div class="row g-0">
@@ -178,11 +184,13 @@
                                         <hr class="hr hr-blurry mb-3" />
 
                                         <img src="" loading="lazy" class="w-100 img-fluid rounded-2 cocktail-image"
-                                            alt="...">
+                                            alt="cocktail image">
                                         <h5 class="item-title description mt-5 my-3">Description</h5>
                                         <p class="cocktail-type badge rounded-pill text-bg-info"></p>
                                         <p class="item-text cocktail-description">
                                         </p>
+                                        <div class="fs-3 d-flex gap-3"><i class="fa-solid fa-share-nodes"></i><i
+                                                class="fa-solid fa-heart-circle-plus" id="addFave"></i></div>
                                     </div>
                                 </div>
                             </div>
@@ -374,7 +382,7 @@
 
 
 
-    <!-- Modal -->
+    <!-- Error Modal -->
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -389,6 +397,26 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Favorites Modal -->
+    <div class="modal fade" id="favoritesModal" tabindex="-1" aria-labelledby="favoritesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title d-flex align-items-center gap-5" id="favoritesModalLabel"><i
+                            class="fa-solid fa-heart fs-2"></i> <span id="modal-title">Your Favorite Cocktails</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="favorites-modal-body">
+                    <!-- Modal Body -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Share</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

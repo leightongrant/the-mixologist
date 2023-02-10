@@ -111,6 +111,7 @@ footer .border-top {
 
 
 /* Setting  */
+#favoriteCocktils-button:hover,
 #settings-button:hover {
     cursor: pointer;
     color: #ffbb33
