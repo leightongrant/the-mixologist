@@ -153,10 +153,6 @@ $(function () {
         location.assign('#description');
     });
 
-
-
-
-
 });
 
 
