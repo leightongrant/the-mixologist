@@ -139,6 +139,7 @@ $(function () {
         saveFavoriteCocktail(name, image, type);
     });
 
+
     // Show favorite cocktails
     $('#favoriteCocktils-button').on('click', () => {
         if (localStorage.getItem('favoriteCocktails')) {
@@ -149,10 +150,37 @@ $(function () {
     });
 
     // Loads to cocktail details
-    $('#favorites-modal-body').on('click', 'button', (e) => {
+    $('#favorites-modal-body').on('click', '#view-item', (e) => {
         main($(e.target).val());
         $('#favoritesModal').modal('hide');
         location.assign('#description');
+    });
+
+    //Removes a cocktail from favorites
+    $('#favorites-modal-body').on('click', '#remove-item', (e) => {
+        e.stopPropagation();
+        let items = JSON.parse(localStorage.getItem('favoriteCocktails'));
+        //console.log(items);
+        let fave = $(e.target).parents().parents()[2];
+        // Remove from dom
+        $(fave).remove();
+
+        // Remove from array
+        let itemsSize = items.length;
+
+        items.forEach((i) => {
+            if (JSON.parse(i).name === $(e.target).val()) {
+                let index = items.indexOf(i);
+                items.splice(index, 1);
+            }
+        });
+        // Checks if item removed from array before saving
+        if (itemsSize > items.length) {
+            $('#favoritesModal').on('hidden.bs.modal', () => {
+                localStorage.setItem('favoriteCocktails', JSON.stringify(items));
+            });
+        }
+
     });
 
 });

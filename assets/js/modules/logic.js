@@ -89,7 +89,7 @@ const showFavoritesModal = () => {
                 <div class="card-body">
                     <h5 class="card-title">${JSON.parse(favorite).name}</h5>
                     <p class="card-text badge rounded-pill bg-info text-dark">${JSON.parse(favorite).type}</p><br><br>
-                    <button type="button" class="btn btn-secondary btn-sm" value="" id="remove-item">Remove Item</button>
+                    <button type="button" class="btn btn-secondary btn-sm" value="${JSON.parse(favorite).name}" id="remove-item">Remove Item</button>
                     <button type="button" class="btn btn-secondary btn-sm" value="${JSON.parse(favorite).name}" id="view-item">View Ingredients</button>
                 </div>
             </div>
