@@ -65,11 +65,48 @@ const getCocktail = (search) => {
 
 };
 
-// This function displays a modal
+// This function displays a error modal
 const showModal = (errMsg, mainMessage) => {
     $('#modal-title').text(errMsg);
     $('#modal-body').text(mainMessage);
     $('#errorModal').modal("show");
+};
+
+const showFavoritesModal = () => {
+    let favorites = JSON.parse(localStorage.getItem('favoriteCocktails'));
+    $('#favorites-modal-body').empty();
+
+    favorites.forEach((favorite) => {
+
+        let favoriteItems = '';
+        favoriteItems += `<div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="${JSON.parse(favorite).image}"
+                    alt="Trendy Pants and Shoes" class="img-fluid rounded-start" style="height: auto;object-fit: cover;"/>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">${JSON.parse(favorite).name}</h5>
+                    <p class="card-text badge rounded-pill bg-info text-dark">${JSON.parse(favorite).type}</p><br><br>
+                    <button type="button" class="btn btn-secondary btn-sm" value="${JSON.parse(favorite).name}" id="remove-item">Remove Item</button>
+                    <button type="button" class="btn btn-secondary btn-sm" value="${JSON.parse(favorite).name}" id="view-item">View Recipe</button>
+                </div>
+            </div>
+        </div>
+    </div>`;
+
+        $('#favorites-modal-body').append(favoriteItems);
+
+
+    });
+
+
+
+
+
+    $('#favoritesModal').modal('show');
+
 };
 
 // This function get a list of random cocktails
@@ -96,7 +133,7 @@ const getRandomCocktails = () => {
                     <img src="${responseData.strDrinkThumb}"
                         alt="" srcset="" class="w-100 img-fluid rounded pop-image" loading="lazy">
                     <p class="pop-type badge rounded-pill text-bg-info my-3">${responseData.strAlcoholic}</p><br>
-                    <button type="button" class="btn btn-outline-secondary btn-sm">View</button>
+                    <button type="button" class="btn btn-secondary btn-sm">View Recipe</button>
                 </div></div>`;
 
                 $('#popular-cocktails').html(elements);
@@ -231,12 +268,35 @@ const getCocktailByIngredient = (ing) => {
     });
 };
 
-// Function to save favorites
+// Function to save favorite ingredient
 const saveIngredients = (ingOne, ingTwo) => {
     localStorage.setItem('favorites', JSON.stringify({
         ingOne: ingOne,
         ingTwo: ingTwo
     }));
+};
+
+// Function to save favorite cocktail
+const saveFavoriteCocktail = (name, image, type) => {
+
+    let items = {
+        name: name,
+        image: image,
+        type: type
+    };
+
+    let itemsArr = JSON.parse(localStorage.getItem('favoriteCocktails'));
+
+    if (itemsArr === null) {
+        itemsArr = [];
+        itemsArr.push(JSON.stringify(items));
+    } else if (itemsArr.includes(JSON.stringify(items))) {
+        showModal('Already Added', 'Item already in your favorites');
+    } else {
+        itemsArr.push(JSON.stringify(items));
+    }
+
+    localStorage.setItem('favoriteCocktails', JSON.stringify(itemsArr));
 };
 
 // Main function 
@@ -246,4 +306,5 @@ const main = (search) => {
 
 };
 
-export { getRandomCocktails, main, getRecommendations, saveIngredients, showModal };
+
+export { getRandomCocktails, main, getRecommendations, saveIngredients, showModal, saveFavoriteCocktail, showFavoritesModal };

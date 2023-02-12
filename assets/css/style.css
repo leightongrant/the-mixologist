@@ -111,6 +111,7 @@ footer .border-top {
 
 
 /* Setting  */
+#favoriteCocktils-button:hover,
 #settings-button:hover {
     cursor: pointer;
     color: #ffbb33
@@ -125,4 +126,15 @@ footer .border-top {
 .recommended-view:hover {
     color: #ffbb33;
     cursor: pointer
+}
+
+#addFave:hover {
+    color: #0dcaf0;
+    cursor: pointer;
+}
+
+#addFave:active {
+    transform: scale(1.5);
+    transition-timing-function: ease-out;
+    transition: 0.25s;
 }
