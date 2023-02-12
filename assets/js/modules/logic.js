@@ -90,7 +90,7 @@ const showFavoritesModal = () => {
                     <h5 class="card-title">${JSON.parse(favorite).name}</h5>
                     <p class="card-text badge rounded-pill bg-info text-dark">${JSON.parse(favorite).type}</p><br><br>
                     <button type="button" class="btn btn-secondary btn-sm" value="${JSON.parse(favorite).name}" id="remove-item">Remove Item</button>
-                    <button type="button" class="btn btn-secondary btn-sm" value="${JSON.parse(favorite).name}" id="view-item">View Ingredients</button>
+                    <button type="button" class="btn btn-secondary btn-sm" value="${JSON.parse(favorite).name}" id="view-item">View Recipe</button>
                 </div>
             </div>
         </div>
@@ -133,7 +133,7 @@ const getRandomCocktails = () => {
                     <img src="${responseData.strDrinkThumb}"
                         alt="" srcset="" class="w-100 img-fluid rounded pop-image" loading="lazy">
                     <p class="pop-type badge rounded-pill text-bg-info my-3">${responseData.strAlcoholic}</p><br>
-                    <button type="button" class="btn btn-outline-secondary btn-sm">View</button>
+                    <button type="button" class="btn btn-secondary btn-sm">View Recipe</button>
                 </div></div>`;
 
                 $('#popular-cocktails').html(elements);

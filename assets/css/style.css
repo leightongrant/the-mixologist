@@ -129,6 +129,12 @@ footer .border-top {
 }
 
 #addFave:hover {
-    color: green;
+    color: #0dcaf0;
     cursor: pointer;
+}
+
+#addFave:active {
+    transform: scale(1.5);
+    transition-timing-function: ease-out;
+    transition: 0.25s;
 }

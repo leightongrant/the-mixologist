@@ -51,6 +51,7 @@ $(function () {
     $("#popular-cocktails").on("click", (e) => {
         e.stopPropagation();
         main($(e.target).parent()[0].children[0].innerText);
+        location.assign('#recipe');
     });
 
     // Settings
@@ -102,7 +103,7 @@ $(function () {
     $(".carousel-inner").on("click", ".recommend-view", (e) => {
         e.stopPropagation();
         main($(e.target)[0].attributes.value.value);
-        location.assign("#description");
+        location.assign("#recipe");
     });
 
 
@@ -159,7 +160,7 @@ $(function () {
     $('#favorites-modal-body').on('click', '#view-item', (e) => {
         main($(e.target).val());
         $('#favoritesModal').modal('hide');
-        location.assign('#description');
+        location.assign('#recipe');
     });
 
     //Removes a cocktail from favorites
