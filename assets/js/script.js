@@ -145,8 +145,14 @@ $(function () {
         if (localStorage.getItem('favoriteCocktails')) {
             showFavoritesModal();
         } else {
-            showModal('Nothing here', 'Nothing yet added');
+            showModal('Nothing here', 'Nothing yet added! Go checkout some lovely cocktails and adds something.');
         }
+        if ($('#favorites-modal-body').html() === "") {
+            $('#favorites-modal-body').text('No items currently in your favorites. Go add something and return');
+            //$('#modal-remove-all').addClass('hide');
+        }
+
+
     });
 
     // Loads to cocktail details
@@ -174,14 +180,32 @@ $(function () {
                 items.splice(index, 1);
             }
         });
+
+
+
         // Checks if item removed from array before saving
         if (itemsSize > items.length) {
-            $('#favoritesModal').on('hidden.bs.modal', () => {
+            $('#favoritesModal').on('hidden.bs.modal', (e) => {
+                e.stopPropagation();
                 localStorage.setItem('favoriteCocktails', JSON.stringify(items));
             });
         }
 
+        if ($('#favorites-modal-body').html() === "") {
+            $('#favorites-modal-body').text('No more items to remove, click close to save changes');
+        }
+
     });
+
+    // Remove all from favorites
+    $('#favoritesModal').on('click', '#modal-remove-all', (e) => {
+        e.stopPropagation();
+        $('#favorites-modal-body').html('All cleared, click close to save changes');//.text('All clear');
+
+        localStorage.setItem('favoriteCocktails', JSON.stringify([]));
+    });
+
+
 
 });
 
