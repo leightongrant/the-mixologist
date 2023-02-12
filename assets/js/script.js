@@ -13,6 +13,11 @@ $(function () {
     // Hide location info
     $(".location").addClass("hide");
 
+    // Load maps if geolocation available
+    if (navigator.geolocation) {
+        initMap('bars');
+    }
+
     // Renders random cocktails sidebar
     getRandomCocktails();
 

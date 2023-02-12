@@ -8,8 +8,8 @@ called from script.js 'Get location Event Handlers'
 Passes results to getPlaceDetails for further details
 calls createDataArray to produce highest rated
 */
-function initMap(searchText) {
-  console.log(searchText);
+function initMap (searchText) {
+  //console.log(searchText);
   // Request a location from the browser
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -48,14 +48,14 @@ function initMap(searchText) {
         });
       },
       (err) => {
-        console.log(err);
+        //console.log(err);
       }
     );
   }
 }
 
 /* function to creat highest rated bar or store */
-function createDataArray(place, bars) {
+function createDataArray (place, bars) {
   //if (!place.geometry || !place.geometry.location) return;
   if (!place.photos || !place.rating) return;
   if (place.rating > 3) {
@@ -70,7 +70,7 @@ function createDataArray(place, bars) {
 }
 
 /* function to build html for cards to hold images of highest rate */
-function createCards(d) {
+function createCards (d) {
   // Get the four highest rated
   // Create html elements
   let elements = "";
@@ -94,7 +94,7 @@ function createCards(d) {
 displays a number of properties which are retrieved from getPlaceDetails
 Called from getPlaceDeatils
 */
-function createMarker(place) {
+function createMarker (place) {
   if (!place.geometry || !place.geometry.location) return;
 
   const marker = new google.maps.Marker({
@@ -102,7 +102,7 @@ function createMarker(place) {
     position: place.geometry.location,
   });
 
-  console.log(place.name);
+  //console.log(place.name);
   google.maps.event.addListener(marker, "click", () => {
     const content = document.createElement("div");
     const nameElement = document.createElement("h2");
@@ -172,7 +172,7 @@ function createMarker(place) {
 /* function to get extended place details such as openig hours from google place
 return is passed to createMarker
 */
-function getPlaceDetails(request) {
+function getPlaceDetails (request) {
   service.getDetails(request, function (place, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       createMarker(place);
