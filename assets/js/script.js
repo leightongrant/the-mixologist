@@ -155,10 +155,10 @@ $(function () {
         }
         if ($('#favorites-modal-body').html() === "") {
             $('#favorites-modal-body').text('No items currently in your favorites. Go add something and return');
-            //$('#modal-remove-all').addClass('hide');
+            $('#modal-remove-all').hide();
+        } else {
+            $('#modal-remove-all').show();
         }
-
-
     });
 
     // Loads to cocktail details
