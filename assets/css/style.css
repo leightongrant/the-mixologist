@@ -2,139 +2,125 @@
 
 /* Search */
 body {
-    /* background-color: #eee; */
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
+  /* background-color: #eee; */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
 }
 
 #local-places {
-    background-color: #eee;
+  background-color: #eee;
 }
-
 
 .height {
-    height: 100vh;
+  height: 100vh;
 }
 
-
 .search {
-    position: relative;
-    box-shadow: 0 0 40px rgba(51, 51, 51, .1);
-
+  position: relative;
+  box-shadow: 0 0 40px rgba(51, 51, 51, 0.1);
 }
 
 .search input {
-
-    height: 40px;
-    text-indent: 25px;
-    border: 2px solid #d6d4d4;
-
-
+  height: 40px;
+  text-indent: 25px;
+  border: 2px solid #d6d4d4;
 }
 
-
 .search input:focus {
-
-    box-shadow: none;
-    border: 2px solid blue;
-
-
+  box-shadow: none;
+  border: 2px solid blue;
 }
 
 .search .fa-search {
-
-    position: absolute;
-    top: 13px;
-    left: 16px;
-
+  position: absolute;
+  top: 13px;
+  left: 16px;
 }
 
 .search button {
-
-    position: absolute;
-    top: 2px;
-    right: 4px;
-    height: 35px;
-    width: 110px;
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  height: 35px;
+  width: 110px;
 }
 
 /* Google Maps */
 #map {
-    height: 100%;
+  height: 100%;
 }
 
 /* Data Cards  */
 .card-img-top {
-    width: 100%;
-    height: 20vh;
-    object-fit: cover;
+  width: 100%;
+  height: 20vh;
+  object-fit: cover;
 }
 
 .card-icon {
-    width: 10%
+  width: 10%;
 }
 
 /* Cocktail View */
 
 .cocktail-image {
-    height: 70vh;
-    object-fit: cover;
+  height: 70vh;
+  object-fit: cover;
 }
 
 #recipe {
-    background: aliceblue;
-    padding: 0 15px 15px 15px;
+  background: aliceblue;
+  padding: 0 15px 15px 15px;
 }
 
 /* Popular */
 .pop-image {
-    height: 30vh;
-    object-fit: cover;
+  height: 30vh;
+  object-fit: cover;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .show {
-    display: block;
+  display: block;
 }
 
 /* Footer */
 svg {
-    fill: #6c757d;
+  fill: #6c757d;
 }
 
 footer .border-top {
-    border-color: #6c757d !important;
+  border-color: #6c757d !important;
 }
-
 
 /* Setting  */
 #favoriteCocktils-button:hover,
 #settings-button:hover {
-    cursor: pointer;
-    color: #ffbb33
+  cursor: pointer;
+  color: #ffbb33;
 }
 
 #close-button:hover,
 #save-button:hover {
-    color: #ffbb33
+  color: #ffbb33;
 }
 
 /* Recommended */
 .recommended-view:hover {
-    color: #ffbb33;
-    cursor: pointer
+  color: #ffbb33;
+  cursor: pointer;
 }
 
 #addFave:hover {
-    color: #0dcaf0;
-    cursor: pointer;
+  color: #0dcaf0;
+  cursor: pointer;
 }
 
 #addFave:active {
-    transform: scale(1.5);
-    transition-timing-function: ease-out;
-    transition: 0.25s;
+  transform: scale(1.5);
+  transition-timing-function: ease-out;
+  transition: 0.25s;
 }
